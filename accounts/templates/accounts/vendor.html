@@ -1,0 +1,501 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- 
+Template Name: Savehyip
+Version: 1.0.0
+Author: Webstrot
+
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--[endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Vendor</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Savehyip" />
+    <meta name="keywords" content="Savehyip" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Template style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/dropify.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/nice-select.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/datatables.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/new_favicon-removebg-preview.png' %}" />
+</head>
+
+<body>
+    <!-- preloader Start -->
+    <!-- preloader Start -->
+    <div id="preloader">
+        <div id="status">
+            <img src="{% static 'images/new_favicon-removebg-preview.png' %}" id="preloader_image" alt="loader" height="100" width="100">
+        </div>
+    </div>
+    <div class="cursor"></div>
+    <!-- Top Scroll Start -->
+    <a href="javascript:" id="return-to-top"> <i class="fas fa-angle-double-up"></i></a>
+    <!-- Top Scroll End -->
+    <!-- cp navi wrapper Start -->
+    <nav class="cd-dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
+        <h2><a href="{% url 'home:home_view' %}"> earnnaira </a></h2>
+        <a href="#0" class="cd-close">Close</a>
+         <ul class="cd-dropdown-content">
+            <li>
+                <form class="cd-search">
+                    <input type="search" placeholder="Search...">
+                </form>
+            </li> 
+            <li><a href="{% url 'home:home_view' %}"> Home </a></li>
+            <li><a href="#"> about us </a></li>
+            <li><a href="#"> investment plan </a></li>
+			<li><a href="#"> FAQ </a></li>   
+            <li><a href="#"> contact us </a></li>
+            <li><a href="{% url 'accounts:login_view' %}"> login </a></li>
+            <li><a href="{% url 'accounts:register_view' %}"> register </a></li>
+        </ul>
+        <!-- .cd-dropdown-content -->
+    </nav>
+    <div class="cp_navi_main_wrapper inner_header_wrapper float_left">
+        <div class="container-fluid">
+            <div class="cp_logo_wrapper">
+                <a href="{% url 'home:home_view' %}">
+                    <img src="{% static 'images/new_logo-removebg-preview.png' %}" alt="logo" height="60">
+                </a>
+            </div>
+            <!-- mobile menu area start -->
+            <header class="mobail_menu d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="cd-dropdown-wrapper">
+                                <a class="house_toggle inner_toggle" href="#0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.177 31.177" style="enable-background:new 0 0 31.177 31.177;" xml:space="preserve" width="25px" height="25px">
+                                        <g>
+                                            <g>
+                                                <path class="menubar" d="M30.23,1.775H0.946c-0.489,0-0.887-0.398-0.887-0.888S0.457,0,0.946,0H30.23    c0.49,0,0.888,0.398,0.888,0.888S30.72,1.775,30.23,1.775z" fill="#004165" />
+                                            </g>
+                                            <g>
+                                                <path class="menubar" d="M30.23,9.126H12.069c-0.49,0-0.888-0.398-0.888-0.888c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,8.729,30.72,9.126,30.23,9.126z" fill="#004165" />
+                                            </g>
+                                            <g>
+                                                <path class="menubar" d="M30.23,16.477H0.946c-0.489,0-0.887-0.398-0.887-0.888c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,16.079,30.72,16.477,30.23,16.477z" fill="#004165" />
+                                            </g>
+                                            <g>
+                                                <path class="menubar" d="M30.23,23.826H12.069c-0.49,0-0.888-0.396-0.888-0.887c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,23.43,30.72,23.826,30.23,23.826z" fill="#004165" />
+                                            </g>
+                                            <g>
+                                                <path class="menubar" d="M30.23,31.177H0.946c-0.489,0-0.887-0.396-0.887-0.887c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.398,0.888,0.888C31.118,30.78,30.72,31.177,30.23,31.177z" fill="#004165" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                                <!-- .cd-dropdown -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- .cd-dropdown-wrapper -->
+            </header>
+            <div class="top_header_right_wrapper">
+                <p><i class="flaticon-phone-contact"></i> (+91) 123 123 4567</p>
+                <div class="header_btn">
+                    <ul>
+                        <li>
+                            <a href="{% url 'accounts:register_view' %}"> register </a> </li>
+                        <li>
+                            <a href="{% url 'accounts:login_view' %}"> login </a> </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="cp_navigation_wrapper main_top_wrapper">
+                <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
+                     <ul class="main_nav_ul">             
+                        
+                        <li><a href="{% url 'home:home_view' %}" class="gc_main_navigation">Home</a></li>
+                        <li><a href="#" class="gc_main_navigation">about us</a></li>
+                        <li><a href="#" class="gc_main_navigation">investment plan</a></li>              
+                        <li><a href="#" class="gc_main_navigation">contact us</a></li>
+                    </ul>
+                </div>
+                <!-- mainmenu end -->
+            </div>
+        </div>
+    </div>
+
+    <!-- navi wrapper End -->
+    <!-- inner header wrapper start -->
+    <div class="page_title_section">
+
+        <div class="page_header">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-9 col-md-9 col-12 col-sm-8">
+
+                        <h1>Vendors </h1>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-12 col-sm-4">
+                        <div class="sub_title_section">
+                            <ul class="sub_title">
+                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
+                                <li>Vendors </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- inner header wrapper end -->
+    <!-- about us wrapper start -->
+    <div class="sv_about_wrapper fixed_portion float_left">
+
+        <div class="container">
+            <!-- transaction wrapper start -->
+    <div class="transaction_wrapper float_left">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="sv_heading_wraper half_section_headign half_sec_heading index2_heading">
+                        <h4>reach out to</h4>
+                        <h3>Our Online Vendors</h3>
+                        <div class="line_shape"></div>
+                    </div>
+                    <div class="x_offer_tabs_wrapper">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home"> Whatsapp</a>
+                            </li>
+                            <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#menu2">withdraw</a>
+                            </li> -->
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane active">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="table_next_race league_table overflow-scroll">
+                                        <table>
+                                            <tr style="width: 50%;">
+                                                <th class="form_table_resp" style="width: 50%;">name</th>
+                                                <th>reach out</th>
+                                                <!-- <th>amount</th>
+                                                <th>currency</th>
+                                                <th>deposit</th> -->
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="{% static 'images/mem1.png' %}" alt="img"> <span>Olympia Ripple</span></td>
+
+                                                <td>
+                                                    <div class="about_btn login_btn register_btn float_left" style="margin-top: 40px;">
+                                                        <a href="#">message</a>
+                                                    </div>
+                                                </td>
+                                                <!-- <td>$6,00,000.00</td>
+                                                <td>Dollar</td>
+                                                <td>03 Minutes Ago</td> -->
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="{% static 'images/mem4.png' %}" alt="img"> <span>Nancee Broom</span></td>
+
+                                                <td>
+                                                    <div class="about_btn login_btn register_btn float_left" style="margin-top: 40px;">
+                                                        <a href="#">message</a>
+                                                    </div>
+                                                </td>
+                                                <!-- <td>$16,00,000.00</td>
+                                                <td>card</td>
+                                                <td>22 Minutes Ago</td> -->
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="{% static 'images/mem1.png' %}" alt="img"> <span>Broom Nancee</span></td>
+
+                                                <td>
+                                                    <div class="about_btn login_btn register_btn float_left" style="margin-top: 40px;">
+                                                        <a href="#">message</a>
+                                                    </div>
+                                                </td>
+                                                <!-- <td>$6,00,000.00</td>
+                                                <td>bitcoin</td>
+                                                <td>15 Minutes Ago</td> -->
+
+                                            </tr>
+
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="menu2" class="tab-pane fade">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="table_next_race league_table overflow-scroll">
+                                        <table>
+                                            <tr>
+                                                <th class="form_table_resp">name</th>
+                                                <th>date</th>
+                                                <th>amount</th>
+                                                <th>currency</th>
+                                                <th>deposit</th>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td><img src="images/mem4.png" alt="img"> <span>Nancee Broom</span></td>
+
+                                                <td>June 04,2022</td>
+                                                <td>$16,00,000.00</td>
+                                                <td>card</td>
+                                                <td>22 Minutes Ago</td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="images/mem1.png" alt="img"> <span>Olympia Ripple</span></td>
+
+                                                <td>June 24,2022</td>
+                                                <td>$6,00,000.00</td>
+                                                <td>Dollar</td>
+                                                <td>03 Minutes Ago</td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="images/mem2.png" alt="img"> <span>Ripple Alison</span></td>
+
+                                                <td>June 24,2022</td>
+                                                <td>$06,00,000.00</td>
+                                                <td>ripees</td>
+                                                <td>05 Minutes Ago</td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="images/mem6.png" alt="img"> <span>Emmett Stein
+                                              </span></td>
+                                                <td>June 21,2022</td>
+                                                <td>$66,00,000.00</td>
+                                                <td>paypal</td>
+                                                <td>53 Minutes Ago</td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="images/mem1.png" alt="img"> <span>Broom Nancee</span></td>
+
+                                                <td>June 24,2022</td>
+                                                <td>$6,00,000.00</td>
+                                                <td>bitcoin</td>
+                                                <td>15 Minutes Ago</td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td><img src="images/mem4.png" alt="img"> <span>Alison Rittichier</span></td>
+
+                                                <td>June 28,2022</td>
+                                                <td>$77,00,000.00</td>
+                                                <td>payonner</td>
+                                                <td>05 Minutes Ago</td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="images/mem3.png" alt="img"> <span>Olympia Ripple</span></td>
+
+                                                <td>June 05,2022</td>
+                                                <td>$45,00,000.00</td>
+                                                <td>ETH</td>
+                                                <td>13 Minutes Ago</td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td><img src="images/mem5.png" alt="img"> <span>Olympia Ripple</span></td>
+
+                                                <td>June 24,2022</td>
+                                                <td>$11,00,000.00</td>
+                                                <td>card</td>
+                                                <td>23 Minutes Ago</td>
+
+                                            </tr>
+
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- transaction wrapper start -->
+        </div>
+    </div>
+
+    <!-- about us wrapper end -->
+
+    <!-- footer section start-->
+    <div class="footer_main_wrapper float_left">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 col-12 col-sm-12">
+                    <div class="wrapper_second_about">
+                        <div class="wrapper_first_image">
+                            <a href="{% url 'home:home_view' %}"><img src="{% static 'images/new_logo-removebg-preview.png' %}" class="img-responsive" alt="logo" height="60" /></a>
+                        </div>
+                        <p>We are a full service Digital Marketing Agency all the foundational tool you need.</p>
+                        <div class="counter-section">
+                            <div class="ft_about_icon float_left">
+                                <i class="flaticon-user"></i>
+                                <div class="ft_abt_text_wrapper">
+                                    <p class="timer"> 62236</p>
+                                    <h4>total member</h4>
+                                </div>
+
+                            </div>
+                            <div class="ft_about_icon float_left">
+                                <i class="flaticon-money-bag"></i>
+                                <div class="ft_abt_text_wrapper">
+                                    <p class="timer">27236</p>
+                                    <h4>total deposited</h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-12 col-sm-4">
+                    <div class="wrapper_second_useful">
+                        <h4>usefull links </h4>
+
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>About us</a>
+                            </li>
+
+                            <li><a href="#"><i class="fa fa-angle-right"></i>contact </a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>services</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>news</a> </li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>blog</a> </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-12 col-sm-4">
+                    <div class="wrapper_second_useful wrapper_second_links">
+
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>sitemap</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>FAQ </a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>awards </a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>tstimonials</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>career</a> </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12 col-sm-12">
+                    <div class="wrapper_second_useful wrapper_second_useful_2">
+                        <h4>contact  us</h4>
+
+                        <ul>
+                            <li>
+                                <h1>+800 568 322</h1></li>
+                            <li><a href="#"><i class="flaticon-mail"></i>earnnaira@example.com</a>
+                            </li>
+                            <li><a href="#"><i class="flaticon-language"></i>www.example.com</a>
+                            </li>
+
+                            <li><i class="flaticon-placeholder"></i>110, B Street Kalani Bagh Dewas, Madhya Pradesh, INDIA #455001
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                    <div class="copyright_wrapper float_left">
+                        <div class="copyright">
+                            <p>Copyright <i class="far fa-copyright"></i> 2022 <a href="{% url 'home:home_view' %}"> EarnNaira.</p>
+                        </div>
+                        <div class="social_link_foter">
+
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- footer section end-->
+    <!--custom js files-->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.js' %}"></script>
+    <script src="{% static 'js/jquery.menu-aim.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <script src="{% static 'js/jquery.countTo.js' %}"></script>
+	<script src="{% static 'js/dropify.min.js' %}"></script>
+	<script src="{% static 'js/datatables.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery.inview.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/calculator.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- custom js-->
+
+</body>
+
+</html>
