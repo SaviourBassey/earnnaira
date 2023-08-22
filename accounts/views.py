@@ -18,10 +18,10 @@ class SignUpView(View):
         email = str(request.POST.get('email')).lower()
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
-        referral_email = str(request.POST.get('referral_email')).lower()
-        coupon_code = str(request.POST.get('coupon_code')).lower()
-        if User.objects.filter(email=email).exists():
-            messages.error(request, "An account with the email already exist")
+        username = str(request.POST.get('username')).lower()
+        coupon_code = str(request.POST.get('coupon_code')).lower() #Decide if it should be there or not .lower()
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "An account with the username already exist")
             return redirect("accounts:register")
         else:
             if len(password1) > 7:
@@ -38,7 +38,7 @@ class SignUpView(View):
                 print(l, u, s, d, l+s+u+d, len(password1))
                 if (l>=1 and u>=1 and s>=1 and d>=1 and l+s+u+d==len(password1)):
                     if password1 == password2:
-                        User.objects.create_user(username=email, email=email, password=password1, first_name=first_name, last_name=last_name)
+                        User.objects.create_user(username=username, email=email, password=password1, first_name=first_name, last_name=last_name)
 
                         return redirect("accounts:login_view")
                     else:
@@ -58,10 +58,10 @@ class SignInView(View):
         return render(request, "accounts/login.html")
 
     def post(self, request, *args, **kwargs):
-        email = str(request.POST.get("email")).lower()
+        username = str(request.POST.get("username")).lower()
         password = request.POST.get("password")
-        if User.objects.filter(email=email).exists():
-            fetch_user = User.objects.filter(email=email)[0]
+        if User.objects.filter(username=username).exists():
+            fetch_user = User.objects.filter(username=username)[0]
             username = fetch_user.username
             user = authenticate(request, username=username, password=password)
             if user is not None:

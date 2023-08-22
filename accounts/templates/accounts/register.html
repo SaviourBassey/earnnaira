@@ -63,10 +63,12 @@ Author: Webstrot
                     <input type="search" placeholder="Search...">
                 </form>
             </li> 
-            <li><a href="{% url 'home:home_view' %}"> Home </a></li>
-            <li><a href="#"> about us </a></li>
-            <li><a href="#"> investment plan </a></li>
-			<li><a href="#"> FAQ </a></li>   
+            <li><a href="{% url 'home:home_view' %}"> home </a></li>
+            <li><a href="{% url 'home:about_view' %}"> about us </a></li>
+            <li><a href="{% url 'accounts:vendor_view' %}"> Buy Coupon </a></li>
+			<li><a href="{% url 'home:top_earners_view' %}"> Top Earners </a></li>   
+			<li><a href="#"> Affiliate Contest </a></li>   
+			<li><a href="{% url 'blog:blog_home_view' %}"> EarnNaira Posts </a></li>    
             <li><a href="#"> contact us </a></li>
             <li><a href="{% url 'accounts:login_view' %}"> login </a></li>
             <li><a href="{% url 'accounts:register_view' %}"> register </a></li>
@@ -131,10 +133,13 @@ Author: Webstrot
             <div class="cp_navigation_wrapper main_top_wrapper">
                 <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                      <ul class="main_nav_ul">             
-                        <li><a href="{% url 'home:home_view' %}" class="gc_main_navigation">Home</a></li>
-                        <li><a href="#" class="gc_main_navigation">about us</a></li>
-                        <li><a href="#" class="gc_main_navigation">investment plan</a></li>       
-                        <li><a href="#" class="gc_main_navigation">contact us</a></li>
+                        <li><a href="{% url 'home:home_view' %}" class="gc_main_navigation">home</a></li>
+                        <li><a href="{% url 'home:about_view' %}" class="gc_main_navigation">about</a></li>     
+                        <li><a href="{% url 'accounts:vendor_view' %}" class="gc_main_navigation">Buy Coupon</a></li>     
+                        <li><a href="{% url 'home:top_earners_view' %}" class="gc_main_navigation">Top Earners</a></li>     
+                        <li><a href="#" class="gc_main_navigation">Affiliate Contest</a></li>     
+                        <li><a href="{% url 'blog:blog_home_view' %}" class="gc_main_navigation">EarnNaira Posts</a></li>     
+                        <li><a href="#" class="gc_main_navigation">contact</a></li>
                     </ul>
                 </div>
                 <!-- mainmenu end -->
@@ -175,7 +180,7 @@ Author: Webstrot
                     <div class="login_top_box float_left">
                         <div class="login_banner_wrapper register_banner_wrapper">
                             <img src="{% static 'images/new_logo-removebg-preview.png' %}" alt="logo" height="40">
-                            <div class="about_btn  facebook_wrap float_left">
+                            <!-- <div class="about_btn  facebook_wrap float_left">
 
                                 <a href="#">login with facebook <i class="fab fa-facebook-f"></i></a>
 
@@ -184,7 +189,7 @@ Author: Webstrot
 
                                 <a href="#">login with pinterest <i class="fab fa-pinterest-p"></i></a>
 
-                            </div>
+                            </div> -->
                             <div class="jp_regis_center_tag_wrapper jb_register_red_or">
                                 <h1>OR</h1>
                             </div>
@@ -209,6 +214,11 @@ Author: Webstrot
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12 icon_form comments_form register_contact">
+                                        <input class="form-control" type="text" name="username" id="" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12 icon_form comments_form register_contact">
                                         <input class="form-control" type="email" name="email" id="" placeholder="Email Address" required>
                                     </div>
                                 </div>
@@ -227,11 +237,6 @@ Author: Webstrot
                                 </div> -->
                                 <div class="form-row">
                                     <div class="form-group col-md-12 icon_form comments_form register_contact">
-                                        <input class="form-control" type="email" name="referral_email" id="" placeholder="Referral Email">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12 icon_form comments_form register_contact">
                                         <input class="form-control" type="text" name="coupon_code" id="" placeholder="Coupon Code" required>
                                         <small style="font-size: medium;">Don't have code? <a href="{% url 'accounts:vendor_view' %}">Get Code</a></small>
                                     </div>
@@ -247,7 +252,7 @@ Author: Webstrot
                                 
                                 <div class="login_remember_box">
                                     <label class="control control--checkbox" style="text-align: center;">I agreed to the Terms and Conditions. 
-                                        <input type="checkbox">
+                                        <input type="checkbox" required>
                                         <span class="control__indicator"></span>
                                     </label>
                                     

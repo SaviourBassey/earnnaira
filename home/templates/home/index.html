@@ -62,10 +62,12 @@ Author: Webstrot
                     <input type="search" placeholder="Search...">
                 </form>
             </li>
-            <li><a href="{% url 'home:home_view' %}"> Home </a></li>
-            <li><a href="#"> about us </a></li>
-            <li><a href="#"> investment plan </a></li>
-            <li><a href="#"> FAQ </a></li>
+            <li><a href="{% url 'home:home_view' %}"> home </a></li>
+            <li><a href="{% url 'home:about_view' %}"> about us </a></li>
+            <li><a href="{% url 'accounts:vendor_view' %}"> Buy Coupon </a></li>
+			<li><a href="{% url 'home:top_earners_view' %}"> Top Earners </a></li>   
+			<li><a href="#"> Affiliate Contest </a></li>   
+			<li><a href="{% url 'blog:blog_home_view' %}"> EarnNaira Posts </a></li>    
             <li><a href="#"> contact us </a></li>
             <li><a href="{% url 'accounts:login_view' %}"> login </a></li>
             <li><a href="{% url 'accounts:register_view' %}"> register </a></li>
@@ -75,7 +77,7 @@ Author: Webstrot
     <div class="cp_navi_main_wrapper index2_header_wrapper float_left">
         <div class="container-fluid">
             <div class="cp_logo_wrapper">
-                <a href="{% url 'home:home_view' %}l">
+                <a href="{% url 'home:home_view' %}">
                     <img src="{% static 'images/new_logo-removebg-preview.png' %}" alt="logo" height="60">
                 </a>
             </div>
@@ -130,10 +132,13 @@ Author: Webstrot
             <div class="cp_navigation_wrapper">
                 <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                     <ul class="main_nav_ul">  
-                        <li><a href="{% url 'home:home_view' %}" class="gc_main_navigation">Home</a></li>
-                        <li><a href="#" class="gc_main_navigation">about us</a></li>
-                        <li><a href="#" class="gc_main_navigation">investment plan</a></li>
-                        <li><a href="#" class="gc_main_navigation">contact us</a></li>
+                        <li><a href="{% url 'home:home_view' %}" class="gc_main_navigation">home</a></li>
+                        <li><a href="{% url 'home:about_view' %}" class="gc_main_navigation">about</a></li>     
+                        <li><a href="{% url 'accounts:vendor_view' %}" class="gc_main_navigation">Buy Coupon</a></li>     
+                        <li><a href="{% url 'home:top_earners_view' %}" class="gc_main_navigation">Top Earners</a></li>     
+                        <li><a href="#" class="gc_main_navigation">Affiliate Contest</a></li>     
+                        <li><a href="{% url 'blog:blog_home_view' %}" class="gc_main_navigation">EarnNaira Posts</a></li>     
+                        <li><a href="#" class="gc_main_navigation">contact</a></li>
                     </ul>
                 </div>
                 <!-- mainmenu end -->
@@ -267,6 +272,33 @@ For <span>Future</span></h3>
 
     </div>
     <!-- slider wrapper End -->
+
+
+    <!-- works wrapper start -->
+    <div class="works_wrapper float_left">
+        <div class="work_banner_wrapper">
+            <img src="{% static 'images/video_bg.jpg' %}" alt="img">
+        </div>
+        <div class="howwork_banner_wrapper index2_homwork_banner_wrapper">
+            <div class="vedio_link_wrapper">
+                <a class="test-popup-link button" rel='external' href='https://www.youtube.com/embed/ryzOXAO0Ss0' title='title'><i class="fa fa-play"></i></a>
+                <div class="work_content_wrap">
+                    <h1>How It Works</h1>
+                    <ul class="work_checklist_wrapper">
+                        <li>
+                            <a href="#"><i class="fas fa-dollar-sign"></i>Create Account</a>
+                        </li>
+                        <li><a href="#"><i class="far fa-money-bill-alt"></i> Explore Opportunities</a></li>
+                        <li><a href="#"><i class="fas fa-plus"></i> Request Payout</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- works wrapper end -->
+
+
     <!--about us wrapper start -->
     <div class="about_us_wrapper index2_about_us_wrapper float_left">
         <div class="container">
@@ -293,15 +325,15 @@ For <span>Future</span></h3>
                             <p>Put your investing ideas into action with full range of investments. Enjoy real benefits and rewards on your accrue investing.</p>
                             <div class="welcome_save_inpvate_wrapper">
                                 <ul>
-                                    <li class="purple_inovate"><a href="#"><i class="flaticon-check-box"></i> We Innovate </a></li>
-                                    <li class="blue_inovate"><a href="#"><i class="flaticon-check-box"></i> Licenced & Certified </a></li>
-                                    <li class="green_inovate"><a href="#"><i class="flaticon-check-box"></i>Saving & Investments </a></li>
+                                    <li class="purple_inovate"><a href="#"><i class="flaticon-check-box"></i> Spin & Win </a></li>
+                                    <li class="blue_inovate"><a href="#"><i class="flaticon-check-box"></i> Easy Tasks </a></li>
+                                    <li class="green_inovate"><a href="#"><i class="flaticon-check-box"></i>Quick Payout </a></li>
                                 </ul>
                             </div>
                             <div class="about_btn float_left">
                                 <ul>
                                     <li>
-                                        <a href="#">get more</a>
+                                        <a href="{% url 'home:about_view' %}">About Us</a>
                                     </li>
                                 </ul>
                             </div>
@@ -312,8 +344,38 @@ For <span>Future</span></h3>
         </div>
     </div>
     <!-- about us wrapper end -->
+
+    <!-- global community wrapper start -->
+    <div class="global_community_wrapper index2_global_community_wrapper float_left">
+        <div class="container">
+            <div class="row">
+                <div class="global_comm_wraper index2_global_comm_wrapper">
+                    <h1>We Were Always Thinking Global Community</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="zero_balance_wrapper">
+                    <div class="zero_commisition">
+                        <h1>Registration Fee</h1>
+                        <h4>No hidden charges*</h4>
+                    </div>
+                    <div class="start_invest_wrap">
+                        <h1>&#8358;3,500 only</h1>
+                        <div class="about_btn float_left">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'accounts:vendor_view' %}">buy now !</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- global community wrapper end -->
+
     <!--investment plan wrapper start -->
-    <div class="investment_plans index2_investment_plans float_left">
+    <!-- <div class="investment_plans index2_investment_plans float_left">
         <div class="investment_overlay"></div>
         <div class="container">
             <div class="row">
@@ -519,10 +581,11 @@ For <span>Future</span></h3>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--investment plan wrapper end -->
+
     <!--calculator plan wrapper start -->
-    <div class="calculator_wrapper index2_calculator_wrapper float_left">
+    <!-- <div class="calculator_wrapper index2_calculator_wrapper float_left">
         <div class="container">
             <div class="row">
 
@@ -632,170 +695,10 @@ For <span>Future</span></h3>
 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!--calculator plan wrapper end -->
-    <!-- global community wrapper start -->
-    <div class="global_community_wrapper index2_global_community_wrapper float_left">
-        <div class="container">
-            <div class="row">
-                <div class="global_comm_wraper index2_global_comm_wrapper">
-                    <h1>We Were Always Thinking Global Community</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </div>
-                <div class="zero_balance_wrapper">
-                    <div class="zero_commisition">
-                        <h1>Zero
-Commissions</h1>
-                        <h4>No hidden charges*</h4>
-                    </div>
-                    <div class="start_invest_wrap">
-                        <h1>start invest now</h1>
-                        <div class="about_btn float_left">
-                            <ul>
-                                <li>
-                                    <a href="#">buy now !</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- global community wrapper end -->
-    <!--our services wrapper start -->
-    <div class="our_services_wrapper index2_our_service_wrapper float_left">
-        <div class="container">
-            <div class="row">
 
-                <div class="col-md-12 col-lg-12 col-sm-12 col-12">
-                    <div class="sv_heading_wraper heading_wrapper_dark dark_heading index2_heading index2_heading_center">
-                        <h4> services</h4>
-                        <h3>our features</h3>
-                        <div class="line_shape"></div>
-                    </div>
-
-                </div>
-                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
-                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
-                        <div class="investment_icon_circle">
-                            <i class="flaticon-medal"></i>
-                        </div>
-                        <div class="investment_border_wrapper"></div>
-                        <div class="investment_content_wrapper">
-                            <h1><a href="#">We're Certified</a></h1>
-                            <div class="line_shape investment_line_shape"></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
-                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
-                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
-                        <div class="investment_icon_circle red_info_circle">
-                            <i class="flaticon-shield"></i>
-                        </div>
-                        <div class="investment_border_wrapper red_border_wrapper"></div>
-                        <div class="investment_content_wrapper red_content_wrapper">
-                            <h1><a href="#">We're Secure</a></h1>
-                            <div class="line_shape investment_line_shape"></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
-                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
-                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
-                        <div class="investment_icon_circle blue_icon_circle">
-                            <i class="flaticon-bars"></i>
-                        </div>
-                        <div class="investment_border_wrapper blue_border_wrapper"></div>
-                        <div class="investment_content_wrapper blue_content_wrapper">
-                            <h1><a href="#">We're Profitable</a></h1>
-                            <div class="line_shape investment_line_shape"></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
-                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
-                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
-                        <div class="investment_icon_circle green_info_circle">
-                            <i class="flaticon-bitcoin"></i>
-                        </div>
-                        <div class="investment_border_wrapper green_border_wrapper"></div>
-                        <div class="investment_content_wrapper green_content_wrapper">
-                            <h1><a href="#">We Accept Crypto</a></h1>
-                            <div class="line_shape investment_line_shape"></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
-                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
-                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
-                        <div class="investment_icon_circle pink_info_circle">
-                            <i class="flaticon-headphones"></i>
-                        </div>
-                        <div class="investment_border_wrapper pink_border_wrapper"></div>
-                        <div class="investment_content_wrapper pink_content_wrapper">
-                            <h1><a href="#">best support</a></h1>
-                            <div class="line_shape investment_line_shape"></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
-                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
-                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
-                        <div class="investment_icon_circle yellow_info_circle">
-                            <i class="flaticon-language"></i>
-                        </div>
-                        <div class="investment_border_wrapper yellow_border_wrapper"></div>
-                        <div class="investment_content_wrapper yellow_content_wrapper">
-                            <h1><a href="#">We're global</a></h1>
-                            <div class="line_shape investment_line_shape"></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
-                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!--our services wrapper end -->
-
-    <!-- works wrapper start -->
-    <div class="works_wrapper float_left">
-        <div class="work_banner_wrapper">
-            <img src="{% static 'images/video_bg.jpg' %}" alt="img">
-        </div>
-        <div class="howwork_banner_wrapper index2_homwork_banner_wrapper">
-            <div class="vedio_link_wrapper">
-                <a class="test-popup-link button" rel='external' href='https://www.youtube.com/embed/ryzOXAO0Ss0' title='title'><i class="fa fa-play"></i></a>
-                <div class="work_content_wrap">
-                    <h1>How It Works</h1>
-                    <ul class="work_checklist_wrapper">
-                        <li>
-                            <a href="#"><i class="fas fa-dollar-sign"></i>get deposit</a>
-                        </li>
-                        <li><a href="#"><i class="far fa-money-bill-alt"></i> utilize money</a></li>
-                        <li><a href="#"><i class="fas fa-plus"></i> give interest</a></li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- works wrapper end -->
     <!-- transaction wrapper start -->
     <div class="transaction_wrapper float_left">
         <div class="container">
@@ -1027,8 +930,119 @@ Commissions</h1>
         </div>
     </div>
     <!-- transaction wrapper start -->
+
+    <!--our services wrapper start -->
+    <!-- <div class="our_services_wrapper index2_our_service_wrapper float_left">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+                    <div class="sv_heading_wraper heading_wrapper_dark dark_heading index2_heading index2_heading_center">
+                        <h4> services</h4>
+                        <h3>our features</h3>
+                        <div class="line_shape"></div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
+                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
+                        <div class="investment_icon_circle">
+                            <i class="flaticon-medal"></i>
+                        </div>
+                        <div class="investment_border_wrapper"></div>
+                        <div class="investment_content_wrapper">
+                            <h1><a href="#">We're Certified</a></h1>
+                            <div class="line_shape investment_line_shape"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
+                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
+                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
+                        <div class="investment_icon_circle red_info_circle">
+                            <i class="flaticon-shield"></i>
+                        </div>
+                        <div class="investment_border_wrapper red_border_wrapper"></div>
+                        <div class="investment_content_wrapper red_content_wrapper">
+                            <h1><a href="#">We're Secure</a></h1>
+                            <div class="line_shape investment_line_shape"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
+                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
+                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
+                        <div class="investment_icon_circle blue_icon_circle">
+                            <i class="flaticon-bars"></i>
+                        </div>
+                        <div class="investment_border_wrapper blue_border_wrapper"></div>
+                        <div class="investment_content_wrapper blue_content_wrapper">
+                            <h1><a href="#">We're Profitable</a></h1>
+                            <div class="line_shape investment_line_shape"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
+                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
+                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
+                        <div class="investment_icon_circle green_info_circle">
+                            <i class="flaticon-bitcoin"></i>
+                        </div>
+                        <div class="investment_border_wrapper green_border_wrapper"></div>
+                        <div class="investment_content_wrapper green_content_wrapper">
+                            <h1><a href="#">We Accept Crypto</a></h1>
+                            <div class="line_shape investment_line_shape"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
+                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
+                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
+                        <div class="investment_icon_circle pink_info_circle">
+                            <i class="flaticon-headphones"></i>
+                        </div>
+                        <div class="investment_border_wrapper pink_border_wrapper"></div>
+                        <div class="investment_content_wrapper pink_content_wrapper">
+                            <h1><a href="#">best support</a></h1>
+                            <div class="line_shape investment_line_shape"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
+                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-6 col-12">
+                    <div class="investment_box_wrapper service_box feature_box index2_service_box float_left">
+                        <div class="investment_icon_circle yellow_info_circle">
+                            <i class="flaticon-language"></i>
+                        </div>
+                        <div class="investment_border_wrapper yellow_border_wrapper"></div>
+                        <div class="investment_content_wrapper yellow_content_wrapper">
+                            <h1><a href="#">We're global</a></h1>
+                            <div class="line_shape investment_line_shape"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Ut enim ad minim veniam</p>
+                            <span class="investment_index_icon"><a href="#"><i class="flaticon-arrow-pointing-to-right"></i></a></span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+    <!--our services wrapper end -->
+
+    
     <!-- testimonial wrapper start -->
-    <div class="testimonial_wrapper float_left">
+    <!-- <div class="testimonial_wrapper float_left">
         <div class="investment_overlay"></div>
         <div class="container">
             <div class="row">
@@ -1085,10 +1099,11 @@ Commissions</h1>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- testimonial wrapper end -->
+
     <!-- investors wrapper start -->
-    <div class="investors_wrapper float_left">
+    <!-- <div class="investors_wrapper float_left">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -1241,10 +1256,11 @@ Commissions</h1>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- investors wrapper end -->
+
     <!-- newsletter wrapper start -->
-    <div class="global_community_wrapper newsletter_wrapper index2_newsletter float_left">
+    <!-- <div class="global_community_wrapper newsletter_wrapper index2_newsletter float_left">
         <div class="container">
             <div class="row">
                 <div class="global_comm_wraper news_cntnt">
@@ -1272,8 +1288,9 @@ Commissions</h1>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- newsletter  wrapper end -->
+
     <!--our blog wrapper start -->
     <!-- <div class="our_blog_wrapper float_left">
         <div class="container">
@@ -1367,7 +1384,7 @@ Commissions</h1>
     <!--our blog wrapper end -->
 
     <!-- payments wrapper start -->
-    <div class="payments_wrapper float_left">
+    <!-- <div class="payments_wrapper float_left">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -1419,7 +1436,7 @@ Commissions</h1>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- payments wrapper end -->
 
     <!-- FAQ wrapper start -->

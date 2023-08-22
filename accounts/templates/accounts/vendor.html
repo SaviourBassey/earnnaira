@@ -62,10 +62,12 @@ Author: Webstrot
                     <input type="search" placeholder="Search...">
                 </form>
             </li> 
-            <li><a href="{% url 'home:home_view' %}"> Home </a></li>
-            <li><a href="#"> about us </a></li>
-            <li><a href="#"> investment plan </a></li>
-			<li><a href="#"> FAQ </a></li>   
+            <li><a href="{% url 'home:home_view' %}"> home </a></li>
+            <li><a href="{% url 'home:about_view' %}"> about us </a></li>
+            <li><a href="{% url 'accounts:vendor_view' %}"> Buy Coupon </a></li>
+			<li><a href="{% url 'home:top_earners_view' %}"> Top Earners </a></li>   
+			<li><a href="#"> Affiliate Contest </a></li>   
+			<li><a href="{% url 'blog:blog_home_view' %}"> EarnNaira Posts </a></li>    
             <li><a href="#"> contact us </a></li>
             <li><a href="{% url 'accounts:login_view' %}"> login </a></li>
             <li><a href="{% url 'accounts:register_view' %}"> register </a></li>
@@ -131,10 +133,13 @@ Author: Webstrot
                 <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                      <ul class="main_nav_ul">             
                         
-                        <li><a href="{% url 'home:home_view' %}" class="gc_main_navigation">Home</a></li>
-                        <li><a href="#" class="gc_main_navigation">about us</a></li>
-                        <li><a href="#" class="gc_main_navigation">investment plan</a></li>              
-                        <li><a href="#" class="gc_main_navigation">contact us</a></li>
+                        <li><a href="{% url 'home:home_view' %}" class="gc_main_navigation">home</a></li>
+                        <li><a href="{% url 'home:about_view' %}" class="gc_main_navigation">about</a></li>     
+                        <li><a href="{% url 'accounts:vendor_view' %}" class="gc_main_navigation">Buy Coupon</a></li>     
+                        <li><a href="{% url 'home:top_earners_view' %}" class="gc_main_navigation">Top Earners</a></li>     
+                        <li><a href="#" class="gc_main_navigation">Affiliate Contest</a></li>     
+                        <li><a href="{% url 'blog:blog_home_view' %}" class="gc_main_navigation">EarnNaira Posts</a></li>     
+                        <li><a href="#" class="gc_main_navigation">contact</a></li>
                     </ul>
                 </div>
                 <!-- mainmenu end -->
