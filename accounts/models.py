@@ -5,24 +5,33 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class UserAdditionalInformation(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default="image.jpg")
+    phone = models.CharField(max_length=15, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} Additional Information"
+
+
 class Vendor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    vendor_image = models.ImageField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     vendor_whatsapp_url = models.URLField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.vendor_fisrt_name} {self.vendor_last_name}"
+        return f"Vendor {self.user.first_name} {self.user.last_name}"
 
 
 class CouponCode(models.Model):
     coupon_code = models.CharField(max_length=255, null=True, blank=True, unique=True, editable=False)
     active = models.BooleanField(default=True)
-    used_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    used_by = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     generated_by = models.ForeignKey(Vendor, on_delete=models.CASCADE, null=True, blank=True, editable=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    def generate_coupon_code(self, length=10):
+    def generate_coupon_code(self, length=50):
         characters = string.ascii_uppercase + string.digits
         return ''.join(random.choice(characters) for _ in range(length))
 

@@ -36,6 +36,14 @@ Author: Webstrot
     <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+    <style>
+        /* Adjust text size for smaller screens */
+        @media (max-width: 768px) {
+        #small-screen {
+            font-size: 1rem;
+        }
+        }
+    </style>
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{% static 'images/new_favicon-removebg-preview.png' %}" />
 </head>
@@ -178,13 +186,21 @@ Author: Webstrot
             <div class="row">
 
                 <div class="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+                    {% if not all_post %}
+                    <div class="blog_category_box_wrapper blog_box_wrapper float_left">
+                        <div style="text-align: center; color: black; font-size: 2rem; padding: 50px;">
+                            <p id="small-screen">No Post at the moment</p>
+                        </div>
+                    </div>
+                    {% else %}
+                    {% for post in all_post %}
                     <div class="blog_category_box_wrapper blog_box_wrapper float_left">
                         <div class="blog_news_img_wrapper float_left">
 
-                            <img src="{% static 'images/blog1.jpg' %}" alt="blog_img">
+                            <img src="{{ post.post_image.url }}" alt="blog_img">
                             <div class="blog_date_wrapper">
-                                <p>15
-                                    <br> <span>jun</span></p>
+                                <p>{{ post.timestamp|date:"d" }}
+                                    <br> <span>{{ post.timestamp|date:"b" }}</span></p>
                             </div>
 
                         </div>
@@ -192,18 +208,18 @@ Author: Webstrot
 
                             <div class="blog_heaidng_top">
 
-                                <h3> <a href="#">Invest To Grow Your Money </a></h3>
+                                <h3> <a href="{% url 'blog:blog_detail_view' SLUG=post.slug ID=post.id %}">{{ post.post_title }} </a></h3>
 
                             </div>
                             <div class="blog-single_cntnt">
-                                <p>Web typography is now more stylish and malleable than ever before. New CSS3 properties allow for trul unique typographic effects that in the past wouldve required images and custom JavaScript.Each of the following code snippets. This is shop version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p>
+                                <p>{{ post.snippet }}</p>
 
                             </div>
 
                             <div class="lest_news_cont_bottom float_left">
                                 <ul>
                                     <li>
-                                        <a href="#"><i class="fa fa-user"></i>by akshay H.</a>
+                                        <a href="#"><i class="fa fa-user"></i>by Admin</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-comments"></i>04 comments</a>
@@ -216,10 +232,12 @@ Author: Webstrot
                         </div>
 
                     </div>
-                    <div class="blog_category_box_wrapper blog_box_wrapper float_left">
+                    {% endfor %}
+                    {% endif %}
+                    <!-- <div class="blog_category_box_wrapper blog_box_wrapper float_left">
                         <div id="blogoneSlider" class="carousel slide" data-ride="carousel">
 
-                            <!-- Wrapper for slides -->
+                            {% comment %} Wrapper for slides {% endcomment %}
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
                                     <img src="{% static 'images/blog2.jpg' %}" class="img-responsive " alt="Image">
@@ -229,7 +247,7 @@ Author: Webstrot
                                 </div>
                             </div>
 
-                            <!-- Controls -->
+                            {% comment %} Controls {% endcomment %}
                             <a class="left carousel-control" href="#blogoneSlider" role="button" data-slide="prev">
                                 <span class="flaticon-left-arrow"></span>
                                 <span class="sr-only">Previous</span>
@@ -312,47 +330,9 @@ Author: Webstrot
 
                         </div>
 
-                    </div>
-                    <div class="blog_category_box_wrapper blog_box_wrapper float_left">
-                        <div class="blog_news_img_wrapper float_left">
-
-                            <img src="{% static 'images/blog1.jpg' %}" alt="blog_img">
-                            <div class="blog_date_wrapper">
-                                <p>15
-                                    <br> <span>jun</span></p>
-                            </div>
-
-                        </div>
-                        <div class="lest_news_cont_wrapper float_left">
-
-                            <div class="blog_heaidng_top">
-
-                                <h3> <a href="#">The Scroll Hijacking Usability 
-Nightmare.</a></h3>
-
-                            </div>
-                            <div class="blog-single_cntnt">
-                                <p>Web typography is now more stylish and malleable than ever before. New CSS3 properties allow for trul unique typographic effects that in the past wouldve required images and custom JavaScript.Each of the following code snippets. This is shop version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-
-                            </div>
-
-                            <div class="lest_news_cont_bottom float_left">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fa fa-user"></i>by akshay H.</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-comments"></i>04 comments</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-heart"></i>37 likes</a> </li>
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    </div> -->
+                
+                    <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
                         <div class="blog_pagination_section float_left">
                             <ul>
@@ -373,7 +353,7 @@ Nightmare.</a></h3>
                             </ul>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">
@@ -389,126 +369,68 @@ Nightmare.</a></h3>
                         </form>
                     </div>
                     <div class="sidebar_widget">
-                        <h4>blog category</h4>
+                        <h4>post category</h4>
 
                         <div class="archives_wrapper">
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="{% url 'blog:blog_home_view' %}">
                                         <i class="fa fa-angle-right" aria-hidden="true"></i> all
                                     </a>
                                 </li>
+                                {% if all_category %}
+                                {% for cat in all_category %}
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>development
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>{{ cat.category }}
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>exterior & interior
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>photography
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>vedio
-                                    </a>
-                                </li>
+                                {% endfor %}
+                                {% endif %}
 
                             </ul>
                         </div>
                     </div>
 
                     <div class="sidebar_widget">
-                        <div class="wrapper_second_blog wrapper_second_blog_2">
-                            <h4>recent post</h4>
-                            <div class="blog_wrapper1">
-                                <div class="blog_image">
-                                    <img src="{% static 'images/let1.png' %}" class="img-responsive" alt="img" />
-                                </div>
-                                <div class="sv_blog_text">
-                                    <h5><a href="#">Happy work awards</a></h5>
-                                    <div class="blog_date blog_date_blog"><i class="fa fa-calendar-o" aria-hidden="true"></i>Aug 28, 2018-19</div>
-                                </div>
-                            </div>
-                            <div class="blog_wrapper2">
-                                <div class="blog_image">
-                                    <img src="{% static 'images/let2.png' %}" class="img-responsive" alt="img" />
-                                </div>
-                                <div class="sv_blog_text">
-                                    <h5><a href="#">Replay market to under</a></h5>
-                                    <div class="blog_date blog_date_blog"><i class="fa fa-calendar-o" aria-hidden="true"></i>Aug 28, 2018-19</div>
-                                </div>
-                            </div>
-                            <div class="blog_wrapper2">
-                                <div class="blog_image">
-                                    <img src="{% static 'images/let5.png' %}" class="img-responsive" alt="img" />
-                                </div>
-                                <div class="sv_blog_text">
-                                    <h5><a href="#">Who round three world!</a></h5>
-                                    <div class="blog_date blog_date_blog"><i class="fa fa-calendar-o" aria-hidden="true"></i>Aug 28, 2018-19</div>
-                                </div>
-                            </div>
-                            <div class="blog_wrapper2">
-                                <div class="blog_image">
-                                    <img src="images/let4.png" class="img-responsive" alt="img" />
-                                </div>
-                                <div class="sv_blog_text">
-                                    <h5><a href="#">invest market indicators</a></h5>
-                                    <div class="blog_date blog_date_blog"><i class="fa fa-calendar-o" aria-hidden="true"></i>Aug 28, 2018-19</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidebar_widget">
-                        <h4>blog archive</h4>
+                        <h4>post archive</h4>
 
                         <div class="archives_wrapper">
                             <ul>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i> january-2018
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> september-2023
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>february-2018
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>october-2023
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>march-2018
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>november-2023
 
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>april-2018
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>december-2023
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>may-2018
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>january-2024
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>june-2018
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>febuary-2024
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>july-2018
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>august-2018
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>march-2024
                                     </a>
                                 </li>
 

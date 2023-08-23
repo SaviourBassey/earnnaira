@@ -36,6 +36,14 @@ Author: Webstrot
     <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+    <style>
+        /* Adjust text size for smaller screens */
+        @media (max-width: 768px) {
+        #small-screen {
+            font-size: 1rem;
+        }
+        }
+    </style>
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{% static 'images/new_favicon-removebg-preview.png' %}" />
 </head>
@@ -196,6 +204,13 @@ Author: Webstrot
                         </ul>
                     </div>
                 </div>
+                {% if not all_vendors %}
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div style="text-align: center; color: black; font-size: 2rem; margin-top: 50px;">
+                        <p id="small-screen">No Vendor at the moment</p>
+                    </div>
+                </div>
+                {% else %}
                 <div class="col-xl-12 col-lg-12 col-md-12">
                     <div class="tab-content">
                         <div id="home" class="tab-pane active">
@@ -206,53 +221,19 @@ Author: Webstrot
                                             <tr style="width: 50%;">
                                                 <th class="form_table_resp" style="width: 50%;">name</th>
                                                 <th>reach out</th>
-                                                <!-- <th>amount</th>
-                                                <th>currency</th>
-                                                <th>deposit</th> -->
-
                                             </tr>
+                                            {% for vendor in all_vendors %}
                                             <tr>
 
-                                                <td><img src="{% static 'images/mem1.png' %}" alt="img"> <span>Olympia Ripple</span></td>
+                                                <td><img src="{{ vendor.user.useradditionalinformation.image.url }}" alt="img"> <span>{{ vendor.user.first_name }} {{ vendor.user.last_name }}</span></td>
 
                                                 <td>
                                                     <div class="about_btn login_btn register_btn float_left" style="margin-top: 40px;">
-                                                        <a href="#">message</a>
+                                                        <a href="{{ vendor.vendor_whatsapp_url }}">message</a>
                                                     </div>
                                                 </td>
-                                                <!-- <td>$6,00,000.00</td>
-                                                <td>Dollar</td>
-                                                <td>03 Minutes Ago</td> -->
-
                                             </tr>
-                                            <tr>
-
-                                                <td><img src="{% static 'images/mem4.png' %}" alt="img"> <span>Nancee Broom</span></td>
-
-                                                <td>
-                                                    <div class="about_btn login_btn register_btn float_left" style="margin-top: 40px;">
-                                                        <a href="#">message</a>
-                                                    </div>
-                                                </td>
-                                                <!-- <td>$16,00,000.00</td>
-                                                <td>card</td>
-                                                <td>22 Minutes Ago</td> -->
-
-                                            </tr>
-                                            <tr>
-
-                                                <td><img src="{% static 'images/mem1.png' %}" alt="img"> <span>Broom Nancee</span></td>
-
-                                                <td>
-                                                    <div class="about_btn login_btn register_btn float_left" style="margin-top: 40px;">
-                                                        <a href="#">message</a>
-                                                    </div>
-                                                </td>
-                                                <!-- <td>$6,00,000.00</td>
-                                                <td>bitcoin</td>
-                                                <td>15 Minutes Ago</td> -->
-
-                                            </tr>
+                                            {% endfor %}
 
                                         </table>
 
@@ -260,111 +241,9 @@ Author: Webstrot
                                 </div>
                             </div>
                         </div>
-                        <div id="menu2" class="tab-pane fade">
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="table_next_race league_table overflow-scroll">
-                                        <table>
-                                            <tr>
-                                                <th class="form_table_resp">name</th>
-                                                <th>date</th>
-                                                <th>amount</th>
-                                                <th>currency</th>
-                                                <th>deposit</th>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <td><img src="images/mem4.png" alt="img"> <span>Nancee Broom</span></td>
-
-                                                <td>June 04,2022</td>
-                                                <td>$16,00,000.00</td>
-                                                <td>card</td>
-                                                <td>22 Minutes Ago</td>
-
-                                            </tr>
-                                            <tr>
-
-                                                <td><img src="images/mem1.png" alt="img"> <span>Olympia Ripple</span></td>
-
-                                                <td>June 24,2022</td>
-                                                <td>$6,00,000.00</td>
-                                                <td>Dollar</td>
-                                                <td>03 Minutes Ago</td>
-
-                                            </tr>
-                                            <tr>
-
-                                                <td><img src="images/mem2.png" alt="img"> <span>Ripple Alison</span></td>
-
-                                                <td>June 24,2022</td>
-                                                <td>$06,00,000.00</td>
-                                                <td>ripees</td>
-                                                <td>05 Minutes Ago</td>
-
-                                            </tr>
-                                            <tr>
-
-                                                <td><img src="images/mem6.png" alt="img"> <span>Emmett Stein
-                                              </span></td>
-                                                <td>June 21,2022</td>
-                                                <td>$66,00,000.00</td>
-                                                <td>paypal</td>
-                                                <td>53 Minutes Ago</td>
-
-                                            </tr>
-                                            <tr>
-
-                                                <td><img src="images/mem1.png" alt="img"> <span>Broom Nancee</span></td>
-
-                                                <td>June 24,2022</td>
-                                                <td>$6,00,000.00</td>
-                                                <td>bitcoin</td>
-                                                <td>15 Minutes Ago</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <td><img src="images/mem4.png" alt="img"> <span>Alison Rittichier</span></td>
-
-                                                <td>June 28,2022</td>
-                                                <td>$77,00,000.00</td>
-                                                <td>payonner</td>
-                                                <td>05 Minutes Ago</td>
-
-                                            </tr>
-                                            <tr>
-
-                                                <td><img src="images/mem3.png" alt="img"> <span>Olympia Ripple</span></td>
-
-                                                <td>June 05,2022</td>
-                                                <td>$45,00,000.00</td>
-                                                <td>ETH</td>
-                                                <td>13 Minutes Ago</td>
-
-                                            </tr>
-                                            <tr>
-
-                                                <td><img src="images/mem5.png" alt="img"> <span>Olympia Ripple</span></td>
-
-                                                <td>June 24,2022</td>
-                                                <td>$11,00,000.00</td>
-                                                <td>card</td>
-                                                <td>23 Minutes Ago</td>
-
-                                            </tr>
-
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

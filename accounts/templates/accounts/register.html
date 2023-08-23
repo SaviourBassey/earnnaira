@@ -201,6 +201,13 @@ Author: Webstrot
 
                             </div>
 
+                            <div class="row">
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div class="col-md-12  icon_form comments_form register_contact alert alert-{{ message.tags }}" style="display:block; text-align:center;"><div>{{ message }}</div></div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
 
                             <form action="{% url 'accounts:register_view' %}" method="post">
                                 {% csrf_token %}

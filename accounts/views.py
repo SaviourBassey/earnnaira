@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import CouponCode, UserAdditionalInformation, Vendor
 
 # Create your views here.
 
@@ -19,7 +20,7 @@ class SignUpView(View):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
         username = str(request.POST.get('username')).lower()
-        coupon_code = str(request.POST.get('coupon_code')).lower() #Decide if it should be there or not .lower()
+        coupon_code = str(request.POST.get('coupon_code'))
         if User.objects.filter(username=username).exists():
             messages.error(request, "An account with the username already exist")
             return redirect("accounts:register")
@@ -38,12 +39,16 @@ class SignUpView(View):
                 print(l, u, s, d, l+s+u+d, len(password1))
                 if (l>=1 and u>=1 and s>=1 and d>=1 and l+s+u+d==len(password1)):
                     if password1 == password2:
-                        User.objects.create_user(username=username, email=email, password=password1, first_name=first_name, last_name=last_name)
-
-                        return redirect("accounts:login_view")
+                        if CouponCode.objects.filter(coupon_code=coupon_code, active=True, used_by=None).exists():
+                            user = User.objects.create_user(username=username, email=email, password=password1, first_name=first_name, last_name=last_name)
+                            UserAdditionalInformation.objects.create(user=user, phone=phone)
+                            return redirect("accounts:login_view")
+                        else:
+                            messages.error(request, "Wrong Coupon Code")
+                            return redirect("accounts:register_view")
                     else:
                         messages.error(request, "Password do not match")
-                    return redirect("accounts:register_view")
+                        return redirect("accounts:register_view")
                 else:
                     messages.error(request, "Password must contain atleast 1 Uppercase, 1 lowercase, 1 digit and a special character and at least 8 characters long")
                     return redirect("accounts:register_view")
@@ -71,11 +76,15 @@ class SignInView(View):
                 messages.error(request, "Incorrect Credentials, please check your login details again")
                 return redirect("accounts:login_view")
         else:
-            messages.error(request, "Email not recognized")
+            messages.error(request, "Username not recognized")
             return redirect("accounts:login_view")
 
 
 class VendorView(View):
     def get(self, request, *args, **kwargs):
         logout(request)
-        return render(request, "accounts/vendor.html")
+        all_vendors = Vendor.objects.all()
+        context = {
+            "all_vendors":all_vendors
+        }
+        return render(request, "accounts/vendor.html", context)
