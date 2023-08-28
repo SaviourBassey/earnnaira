@@ -3,13 +3,23 @@ from django.contrib.auth import authenticate, login, logout
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import CouponCode, UserAdditionalInformation, Vendor
+from .models import CouponCode, UserAdditionalInformation, Vendor, DailyLoginReward, Referral, ReferalReward
+from datetime import datetime, timedelta
+from django.utils import timezone
+from django.urls import reverse
 
 # Create your views here.
 
 class SignUpView(View):
     def get(self, request, *args, **kwargs):
         logout(request)
+        referral_user = request.GET.get('ref')
+        if referral_user:
+            context = {
+                "referral_user":referral_user
+            }
+            return render(request, "accounts/register.html", context)
+        
         return render(request, "accounts/register.html")
 
     def post (self, request, *args, **kargs):
@@ -21,6 +31,7 @@ class SignUpView(View):
         password2 = request.POST.get('password2')
         username = str(request.POST.get('username')).lower()
         coupon_code = str(request.POST.get('coupon_code'))
+        referral_user = str(request.POST.get('referral_user')).lower()
         if User.objects.filter(username=username).exists():
             messages.error(request, "An account with the username already exist")
             return redirect("accounts:register")
@@ -41,7 +52,49 @@ class SignUpView(View):
                     if password1 == password2:
                         if CouponCode.objects.filter(coupon_code=coupon_code, active=True, used_by=None).exists():
                             user = User.objects.create_user(username=username, email=email, password=password1, first_name=first_name, last_name=last_name)
-                            UserAdditionalInformation.objects.create(user=user, phone=phone)
+                            additional_info = UserAdditionalInformation.objects.get(user=user)
+                            additional_info.phone = phone
+                            additional_info.referral_link = request.build_absolute_uri(reverse('accounts:register_view')) + f'?ref={user.username}'
+                            additional_info.save()
+
+                            cp = CouponCode.objects.filter(coupon_code=coupon_code, active=True, used_by=None).first()
+                            cp.active = False
+                            cp.used_by = user
+                            cp.save()
+
+                            #implementing Referal Sysytem
+                            '''
+                            referral_user is the user whose referral link is been used
+                            indirect_referer_user is the user ...
+                            '''
+                            if referral_user:
+                                if User.objects.filter(username=referral_user).exists():
+                                    referring_user_objects = User.objects.get(username=referral_user)
+                                    Referral.objects.create(referring_user=referring_user_objects, referred_user=user, generation=1)
+                                    direct_referer_reward = ReferalReward.objects.get(user=referring_user_objects)
+                                    direct_referer_reward.direct_bal = direct_referer_reward.direct_bal + 2200
+                                    direct_referer_reward.save()
+                                    additional_info.account_bal = additional_info.account_bal + 2200
+                                    additional_info.save()
+
+                                    if Referral.objects.filter(referred_user=referring_user_objects).exists():
+                                        indirect_referer = Referral.objects.get(referred_user=referring_user_objects)
+                                        indirect_referer_user = indirect_referer.referring_user
+                                        indirect_referer_reward = ReferalReward.objects.get(user=indirect_referer_user)
+                                        indirect_referer_reward.indirect_bal = indirect_referer_reward.indirect_bal + 200
+                                        indirect_referer_reward.save()
+                                        additional_info.account_bal = additional_info.account_bal + 200
+                                        additional_info.save()
+
+                                        if Referral.objects.filter(referred_user=indirect_referer_user).exists():
+                                            second_indirect_referer = Referral.objects.get(referred_user=indirect_referer_user)
+                                            second_indirect_referer_user = second_indirect_referer.referring_user
+                                            second_indirect_referer_reward = ReferalReward.objects.get(user=second_indirect_referer_user)
+                                            second_indirect_referer_reward.second_indirect_bal = second_indirect_referer_reward.second_indirect_bal + 100
+                                            second_indirect_referer_reward.save()
+                                            additional_info.account_bal = additional_info.account_bal + 100
+                                            additional_info.save()
+
                             return redirect("accounts:login_view")
                         else:
                             messages.error(request, "Wrong Coupon Code")
@@ -59,6 +112,7 @@ class SignUpView(View):
 
 class SignInView(View):
     def get(self, request, *args, **kwargs):
+        #User.objects.all().delete()
         logout(request)
         return render(request, "accounts/login.html")
 
@@ -70,6 +124,26 @@ class SignInView(View):
             username = fetch_user.username
             user = authenticate(request, username=username, password=password)
             if user is not None:
+                # Implementing the daily login reward
+                today = timezone.now().date()
+                last_login = user.last_login
+                if last_login:
+                    last_login = user.last_login.date()
+                    if last_login < today:
+                        try:
+                            user_reward = DailyLoginReward.objects.get(user=user)
+                            user_reward.daily_login_bal = user_reward.daily_login_bal + int(200)
+                            user_reward.save()
+                        except:
+                            pass
+                else:
+                    try:
+                        user_reward = DailyLoginReward.objects.get(user=user)
+                        user_reward.daily_login_bal = user_reward.daily_login_bal + int(200)
+                        user_reward.save()
+                    except:
+                        pass
+
                 login(request, user)
                 return redirect("dashboard:my_accounts_view")
             else:

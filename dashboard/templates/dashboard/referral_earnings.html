@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <!-- 
 Template Name: Savehyip
@@ -15,29 +13,29 @@ Author: WebstrotSavehyip
 
 <head>
     <meta charset="utf-8" />
-    <title>EarnNaira Dashboard</title>
+    <title>Savehyip Dashboard HTML Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="Savehyip" />
     <meta name="keywords" content="Savehyip" />
     <meta name="author" content="" />
     <meta name="MobileOptimized" content="320" />
     <!--Template style -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon2.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'css/dropify.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/nice-select.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/datatables.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/flaticon2.css" />
+	<link rel="stylesheet" type="text/css" href="css/dropify.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	 <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/new_favicon-removebg-preview.png' %}" />
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 </head>
 <!-- color picker start -->
 
@@ -45,7 +43,7 @@ Author: WebstrotSavehyip
   <!-- preloader Start -->
     <div id="preloader">
         <div id="status">
-            <img src="{% static 'images/new_favicon-removebg-preview.png' %}" id="preloader_image" alt="loader" height="100" width="100">
+            <img src="images/loader.gif" id="preloader_image" alt="loader">
         </div>
     </div>
     <div class="cursor"></div>
@@ -54,7 +52,7 @@ Author: WebstrotSavehyip
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="{% url 'home:home_view' %}"> earnnaira </a></h2>
+        <h2><a href="index.html"> savehyip </a></h2>
         <a href="#0" class="cd-close">Close</a>
          <ul class="cd-dropdown-content">
             <li>
@@ -62,67 +60,101 @@ Author: WebstrotSavehyip
                     <input type="search" placeholder="Search...">
                 </form>
             </li> 
-            <li><a href="{% url 'home:home_view' %}"> home </a></li>
-            <li class="has-children">
-                <a href="#">dashboard</a>
-                  <ul class="cd-secondary-dropdown icon_menu is-hidden">
-                      <li class="go-back"><a href="#0">Menu</a></li>
-                        <li>
-                        <a href="{% url 'dashboard:my_accounts_view' %}">my account</a>
-                      </li>
-                      <li>
-                        <a href="#">my profile</a>
-                      </li> 
-                     <li>
-                        <a href="#">change password</a>
-                      </li>
-                      <li>
-                        <a href="#">change pin</a>
-                      </li>
-                      <li>
-                        <a href="#">Spin & Win</a>
-                      </li>
-                      <li>
-                        <a href="#">payment request</a>
-                    </li>
-                      <li>
-                        <a href="#">exchange money</a>
-                    </li>
-                      <li>
-                        <a href="#">transfer fund</a>
-                    </li>
-                      <li>
-                        <a href="#">all transaction</a>
-                    </li>  
-                    <li>
-                        <a href="{% url 'dashboard:my_referrals_view' %}">Referrals</a>
-                    </li>
-                    <li>
-                        <a href="#">Referral Earnings</a>
-                    </li> 
-                    <li>
-                        <a href="#">tickets</a>
-                    </li> 	
-                    <li>
-                        <a href="#">logout</a>
-                    </li>		
+              <li class="has-children">
+                <a href="#">index</a>
+                <ul class="cd-secondary-dropdown icon_menu is-hidden">
+                    <li class="go-back"><a href="#0">Menu</a></li>
+                    <li><a href="index.html">index I</a></li>
+                    <li><a href="index2.html">index II</a></li>
+                    <li><a href="index3.html">index III</a></li>
                 </ul>
             </li>
-            <li><a href="{% url 'home:about_view' %}"> about us </a></li>
-			<li><a href="{% url 'home:top_earners_view' %}"> Top Earners </a></li>   
-			<li><a href="#"> Affiliate Contest </a></li>   
-			<li><a href="{% url 'blog:blog_home_view' %}"> EarnNaira Posts </a></li>    
-            <li><a href="#"> contact us </a></li>
-            <li><a href="{% url 'accounts:login_view' %}"> login </a></li>
-            <li><a href="{% url 'accounts:register_view' %}"> register </a></li>
+            <li><a href="about_us.html"> about us </a></li>
+            <li><a href="investment.html"> investment plan </a></li>
+			<li><a href="faq.html"> FAQ </a></li>
+			<li class="has-children">
+              <a href="#">dashboard</a>
+                <ul class="cd-secondary-dropdown icon_menu is-hidden">
+                    <li class="go-back"><a href="#0">Menu</a></li>
+                      <li>
+                      <a href="all_transactions.html">all transactions</a>
+					</li>
+                    <li>
+                      <a href="banners.html">banners</a>
+					</li> 
+				   <li>
+                      <a href="change_password.html">change password</a>
+					</li>
+					<li>
+                      <a href="change_pin.html">change pin</a>
+					</li>
+					<li>
+                      <a href="deposit_history.html">deposit history</a>
+                  </li>
+					<li>
+                      <a href="deposit_list.html">deposit list</a>
+                  </li>
+					<li>
+                      <a href="earnings_history.html">earnings history</a>
+                  </li>
+					<li>
+                      <a href="email_notification.html">email notification</a>
+                  </li>   
+					<li>
+                      <a href="exchange_history.html">exchange history</a>
+                  </li>  
+					<li>
+						<a href="exchange_money.html">exchange money</a>
+                  </li> 
+					<li>
+                      <a href="make_deposit.html">make deposit</a>
+                  </li> 	
+					<li>
+                      <a href="my_account.html">my account</a>
+                  </li> 	
+					<li>
+                      <a href="payment_request.html">payment request</a>
+                  </li> 	
+					<li>
+                      <a href="pending_history.html">pending history</a>
+                  </li> 	
+					<li>
+                      <a href="referral_earnings.html">referral earnings</a>
+                  </li> 	
+					<li>
+                      <a href="referrals.html">referrals</a>
+                  </li> 
+					<li>
+                      <a href="tickets.html">tickets</a>
+                  </li> 	
+					<li>
+                      <a href="transfer_fund.html">transfer fund</a>
+                  </li>
+				<li>
+                      <a href="view_profile.html">view profile</a>
+                  </li> 									
+              </ul>
+             </li>  
+				<li class="has-children">
+                <a href="#">blog</a>
+                <ul class="cd-secondary-dropdown icon_menu is-hidden">
+                    <li class="go-back"><a href="#0">Menu</a></li>
+                    <li><a href="blog_category.html">blog category</a></li>
+                    <li><a href="blog_single.html">blog single</a></li>
+                </ul>
+			
+            </li>   
+            <li><a href="contact_us.html"> contact us </a></li>
+            <li><a href="login.html"> login </a></li>
+            <li><a href="register.html"> register </a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
 	 <div class="cp_navi_main_wrapper inner_header_wrapper dashboard_header_middle float_left">
         <div class="container-fluid">
               <div class="cp_logo_wrapper">
-                <a href="{% url 'home:home_view' %}">
-                    <img src="{% static 'images/new_logo-removebg-preview.png' %}" alt="logo" height="60">
+                <a href="index.html">
+                    <img src="images/logo2.png" alt="logo">
                 </a>
             </div>
             <!-- mobile menu area start -->
@@ -163,7 +195,7 @@ Author: WebstrotSavehyip
             <div class="top_header_right_wrapper dashboard_right_Wrapper">
                <div class="crm_message_dropbox_wrapper">
                         <div class="nice-select budge_noti_wrapper" tabindex="0"> <span class="current"><i class="flaticon-envelope"></i></span>
-                            <div class="budge_noti">0</div>
+                            <div class="budge_noti">4</div>
                             <ul class="list">
                                 <li><a href="#">2 New Messages</a>
                                 </li>
@@ -222,7 +254,7 @@ Author: WebstrotSavehyip
                     </div>
 					        <div class="crm_message_dropbox_wrapper crm_notify_dropbox_wrapper">
                         <div class="nice-select budge_noti_wrapper" tabindex="0"> <span class="current"><i class="flaticon-notification"></i></span>
-                            <div class="budge_noti">0</div>
+                            <div class="budge_noti">4</div>
                             <ul class="list">
                                 <li><a href="#">2 New Messages</a>
                                 </li>
@@ -281,7 +313,7 @@ Author: WebstrotSavehyip
                     </div>
 
                     <div class="crm_profile_dropbox_wrapper">
-                        <div class="nice-select" tabindex="0"> <span class="current"><img src="{{ request.user.useradditionalinformation.image.url }}" alt="img"> hi, {{ request.user.first_name }} ! <span class="hidden_xs_content"></span></span>
+                        <div class="nice-select" tabindex="0"> <span class="current"><img src="images/avatar.png" alt="img"> hi, jenny ! <span class="hidden_xs_content"></span></span>
                             <ul class="list">
 
                                 <li><a href="#"><i class="flaticon-profile"></i> Profile</a>
@@ -309,9 +341,36 @@ Author: WebstrotSavehyip
 
             <div class="cp_navigation_wrapper main_top_wrapper dashboard_header">
                 <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
-                     <ul class="main_nav_ul">               
-                        <li><a href="{% url 'home:home_view' %}" class="gc_main_navigation">home</a></li>
-                        <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">dashboard <i class="fas fa-caret-down"></i></a>
+                     <ul class="main_nav_ul">             
+                       <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class">index <i class="fas fa-caret-down"></i></a>
+                            <ul class="navi_2_dropdown">
+                                <li class="parent">
+                                    <a href="index.html"><i class="fas fa-caret-right"></i>index I</a>
+                                </li>
+                                <li class="parent">
+                                    <a href="index2.html"><i class="fas fa-caret-right"></i>index II</a>
+                                </li>
+								<li class="parent">
+                                    <a href="index3.html"><i class="fas fa-caret-right"></i>index III</a>
+                                </li> 								
+                            </ul>
+                        </li>   
+                        <li><a href="about_us.html" class="gc_main_navigation">about us</a></li>
+                        <li><a href="investment.html" class="gc_main_navigation">investment plan</a></li>  
+						<li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">pages <i class="fas fa-caret-down"></i></a>
+                            <ul class="navi_2_dropdown">
+                                <li class="parent">
+                                    <a href="faq.html"><i class="fas fa-caret-right"></i>FAQ</a>
+                                </li>
+                                <li class="parent">
+                                    <a href="login.html"><i class="fas fa-caret-right"></i>login</a>
+                                </li>  
+								<li class="parent">
+                                    <a href="register.html"><i class="fas fa-caret-right"></i>register</a>
+                                </li>   								
+                            </ul>
+                        </li>
+						<li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">dashboard <i class="fas fa-caret-down"></i></a>
                             <ul class="navi_2_dropdown">
                               
                                 <li class="parent">
@@ -319,16 +378,19 @@ Author: WebstrotSavehyip
 									</span></a>
                                     <ul class="dropdown-menu-right">
                                         <li>
-                                            <a href="{% url 'dashboard:my_accounts_view' %}"> <i class="fas fa-caret-right"></i>my account  </a>
+                                            <a href="my_account.html"> <i class="fas fa-caret-right"></i>my account  </a>
                                         </li>
                                         <li>
-                                            <a href="#"> <i class="fas fa-caret-right"></i> my profile</a>
+                                            <a href="view_profile.html"> <i class="fas fa-caret-right"></i> my profile</a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-caret-right"></i>change password</a>
+                                            <a href="email_notification.html"><i class="fas fa-caret-right"></i>email notification </a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-caret-right"></i>change pin</a>
+                                            <a href="change_password.html"><i class="fas fa-caret-right"></i>change password</a>
+                                        </li>
+                                        <li>
+                                            <a href="change_pin.html"><i class="fas fa-caret-right"></i>change pin</a>
                                         </li>
                                      
                                     </ul>
@@ -337,17 +399,20 @@ Author: WebstrotSavehyip
                                     <a href="#"> <i class="fas fa-caret-right"></i>finance<span> <i class="fas fa-caret-right"></i>
 									</span></a>
                                     <ul class="dropdown-menu-right">
-                                        <li>
-                                            <a href="#"><i class="fas fa-caret-right"></i>Spin & Win</a>
+                                         <li>
+                                            <a href="make_deposit.html"> <i class="fas fa-caret-right"></i>make deposit</a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-caret-right"></i>payment request</a>
+                                            <a href="deposit_list.html"> <i class="fas fa-caret-right"></i> deposit lists</a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-caret-right"></i>exchange money</a>
+                                            <a href="payment_request.html"><i class="fas fa-caret-right"></i>payment request</a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-caret-right"></i>fund transfer</a>
+                                            <a href="exchange_money.html"><i class="fas fa-caret-right"></i>exchange money</a>
+                                        </li>
+                                        <li>
+                                            <a href="transfer_fund.html"><i class="fas fa-caret-right"></i>fund transfer</a>
                                         </li>
                                      
                                     </ul>
@@ -357,7 +422,19 @@ Author: WebstrotSavehyip
 									</span></a>
                                     <ul class="dropdown-menu-right">
                                          <li>
-                                            <a href="#"> <i class="fas fa-caret-right"></i>all transactions</a>
+                                            <a href="all_transactions.html"> <i class="fas fa-caret-right"></i>all transactions</a>
+                                        </li>
+                                        <li>
+                                            <a href="deposit_history.html"> <i class="fas fa-caret-right"></i> deposit history</a>
+                                        </li>
+                                        <li>
+                                            <a href="pending_history.html"><i class="fas fa-caret-right"></i>pending history</a>
+                                        </li>
+                                        <li>
+                                            <a href="exchange_history.html"><i class="fas fa-caret-right"></i>exchange history</a>
+                                        </li>
+                                        <li>
+                                            <a href="earnings_history.html"><i class="fas fa-caret-right"></i>earning history</a>
                                         </li>
                                      
                                     </ul>
@@ -367,25 +444,33 @@ Author: WebstrotSavehyip
 									</span></a>
                                     <ul class="dropdown-menu-right">
                                          <li>
-                                            <a href="{% url 'dashboard:my_referrals_view' %}"> <i class="fas fa-caret-right"></i>my referrals</a>
+                                            <a href="referrals.html"> <i class="fas fa-caret-right"></i>my referrals</a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-caret-right"></i>referral earnings</a>
+                                            <a href="banners.html"> <i class="fas fa-caret-right"></i> promotionals banners</a>
+                                        </li>
+                                        <li>
+                                            <a href="referral_earnings.html"><i class="fas fa-caret-right"></i>referral earnings</a>
                                         </li>
                                       
                                     </ul>
                                 </li>
 								<li class="parent">
-                                    <a href="#"><i class="fas fa-caret-right"></i>view tickets</a></li>
-                                <li class="parent">
-                                    <a href="#"><i class="fas fa-caret-right"></i>Logout</a></li>
+                                    <a href="tickets.html"><i class="fas fa-caret-right"></i>view tickets</a></li>
                             </ul>
-                        </li>
-                        <li><a href="{% url 'home:about_view' %}" class="gc_main_navigation">about</a></li>         
-                        <li><a href="{% url 'home:top_earners_view' %}" class="gc_main_navigation">Top Earners</a></li>     
-                        <li><a href="#" class="gc_main_navigation">Affiliate Contest</a></li>     
-                        <li><a href="{% url 'blog:blog_home_view' %}" class="gc_main_navigation">EarnNaira Posts</a></li>     
-                        <li><a href="#" class="gc_main_navigation">contact</a></li>
+                        </li>						
+						    						
+                        <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">blog <i class="fas fa-caret-down"></i></a>
+                            <ul class="navi_2_dropdown">
+                                <li class="parent">
+                                    <a href="blog_category.html"><i class="fas fa-caret-right"></i>blog category</a>
+                                </li>
+                                <li class="parent">
+                                    <a href="blog_single.html"><i class="fas fa-caret-right"></i> blog single</a>
+                                </li>                   
+                            </ul>
+                        </li>     
+                        <li><a href="contact_us.html" class="gc_main_navigation">contact us</a></li>
                     </ul>
                 </div>
                 <!-- mainmenu end -->
@@ -403,13 +488,13 @@ Author: WebstrotSavehyip
 
                     <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-7">
 
-                        <h1>My Account </h1>
+                        <h1>Referral Earnings</h1>
                     </div>
                     <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-5">
                         <div class="sub_title_section">
                             <ul class="sub_title">
-                                <li> <a href="{% url 'dashboard:my_accounts_view' %}"> Dashboard Home </a>&nbsp; / &nbsp; </li>
-                                <li>My Account</li>
+                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
+                                <li>Referral Earnings</li>
                             </ul>
                         </div>
                     </div>
@@ -421,7 +506,7 @@ Author: WebstrotSavehyip
 	<div class="l-sidebar">
             <div class="l-sidebar__content">
                 <nav class="c-menu js-menu" id="mynavi">
-                    <!-- <ul class="u-list crm_drop_second_ul">
+                    <ul class="u-list crm_drop_second_ul">
                         <li class="crm_navi_icon">
                             <div class="c-menu__item__inner"><a href="my_account.html"><i class="flaticon-four-grid-layout-design-interface-symbol"></i></a>
                                 <ul class="crm_hover_menu">
@@ -581,7 +666,7 @@ Author: WebstrotSavehyip
                                 <div class="c-menu-item__title"><span>referrals</span><i class="no_badge purple">2</i>
                                 </div>
                             </a>
-                            <ul class="cd-secondary-dropdown icon_menu is-hidden">
+                            <ul>
                                 <li><a href="referrals.html"><i class="fa fa-circle"></i> my referrals </a>
                                 </li>
                                 <li>
@@ -592,95 +677,18 @@ Author: WebstrotSavehyip
                                  </li>
                             </ul>
                         </li>
-                    </ul> -->
+                    </ul>
 					  <ul class="u-list crm_drop_second_ul">
                         <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
+                            <div class="c-menu__item__inner"><a href="make_deposit.html"><i class="flaticon-profile"></i></a>
                             </div>
                         </li>
                         <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="#">
-                                <div class="c-menu-item__title">My Account</div>
+                            <a href="make_deposit.html">
+                                <div class="c-menu-item__title">deposit</div>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="u-list crm_drop_second_ul">
-                        <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
-                            </div>
-                        </li>
-                        <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="#">
-                                <div class="c-menu-item__title">My Profile</div>
-                            </a>
-                        </li>
-                    </ul>  
-                    <ul class="u-list crm_drop_second_ul">
-                        <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
-                            </div>
-                        </li>
-                        <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="#">
-                                <div class="c-menu-item__title">Change Password</div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="u-list crm_drop_second_ul">
-                        <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
-                            </div>
-                        </li>
-                        <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="#">
-                                <div class="c-menu-item__title">Spin & Win</div>
-                            </a>
-                        </li>
-                    </ul> 
-                    <ul class="u-list crm_drop_second_ul">
-                        <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
-                            </div>
-                        </li>
-                        <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="#">
-                                <div class="c-menu-item__title">Payment Request</div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="u-list crm_drop_second_ul">
-                        <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
-                            </div>
-                        </li>
-                        <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="#">
-                                <div class="c-menu-item__title">All Transaction</div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="u-list crm_drop_second_ul">
-                        <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="{% url 'dashboard:my_referrals_view' %}"><i class="flaticon-profile"></i></a>
-                            </div>
-                        </li>
-                        <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="{% url 'dashboard:my_referrals_view' %}">
-                                <div class="c-menu-item__title">My Referrals</div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="u-list crm_drop_second_ul">
-                        <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
-                            </div>
-                        </li>
-                        <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="#">
-                                <div class="c-menu-item__title">Referral Earnings</div>
-                            </a>
-                        </li>
-                    </ul>
+                    </ul>   
                 </nav>
             </div>
         </div>
@@ -689,46 +697,43 @@ Author: WebstrotSavehyip
           <!--  my account wrapper start -->
             <div class="account_top_information">
                 <div class="account_overlay"></div>
-                <div class="useriimg"><img src="{{ request.user.useradditionalinformation.image.url }}" alt="users" height="150" width="150" style="border-radius: 50%;"></div>
+                <div class="useriimg"><img src="images/user.png" alt="users"></div>
                 <div class="userdet uderid">
-                    <h3>{{ request.user.username }}</h3>
+                    <h3>Benmathew</h3>
 
                     <dl class="userdescc">
-                        <dt>First Name</dt>
-                        <dd>: &nbsp; {{ request.user.first_name }}</dd>
-                        <dt>Last Name</dt>
-                        <dd>: &nbsp; {{ request.user.last_name }}</dd>
-                        <dt>Emaill Address</dt>
-                        <dd>: &nbsp; {{ request.user.email }}</dd>
                         <dt>Registration Date</dt>
-                        <dd>: &nbsp; {{ request.user.date_joined }} </dd>
+                        <dd>: &nbsp; Sep-10-2014 11:20:37</dd>
                         <dt>Last Login</dt>
-                        <dd>: &nbsp; {{ request.user.last_login }} </dd>
+                        <dd>: &nbsp; Jul-05-2022 07:06:36</dd>
+                        <dt>Current Login</dt>
+                        <dd>: &nbsp; Jul-06-2022 02:47:23</dd>
+                        <dt>Last Access IP</dt>
+                        <dd>: &nbsp; 27.57.18.1 </dd>
+                        <dt>Current Access IP</dt>
+                        <dd>: &nbsp; 122.175.131.51 </dd>
 
                     </dl>
 
                 </div>
 
-                <div class="userdet uderid">
+                <div class="userdet user_transcation">
                     <h3>Available Balance</h3>
-
                     <dl class="userdescc">
-                        <dt>Shared Post</dt>
-                        <dd>: &nbsp; 0EN</dd>
-                        <dt>Daily Login</dt>
-                        <dd>: &nbsp; {{ request.user.dailyloginreward.daily_login_bal }}EN</dd>
-                        <dt>Referrals</dt>
-                        <dd>: &nbsp; &#8358;{{ request.user.referalreward.total_bal }}</dd>
-                        <dt>Spin & Win</dt>
-                        <dd>: &nbsp; 0EN </dd>
-                        <dt>Account Balance</dt>
-                        <dd>: &nbsp; &#8358;0 </dd>
+                        <dt>Paypal</dt>
+                        <dd>:&nbsp;&nbsp;$ 392.79</dd>
+                        <dt>Pexpay</dt>
+                        <dd>:&nbsp;&nbsp;$ 498.61</dd>
+                        <dt>PerfectMoney</dt>
+                        <dd>:&nbsp;&nbsp;$ 60.18</dd>
+                        <dt>Payza</dt>
+                        <dd>:&nbsp;&nbsp;$ 435</dd>
+                        <dt>HDMoney</dt>
+                        <dd>:&nbsp;&nbsp;$ 0.08</dd>
 
                     </dl>
-
                 </div>
-
-                <!-- <div class="userdet user_transcation">
+                <div class="userdet user_transcation">
                     <h3 class="none_headung"> &nbsp;</h3>
                     <dl class="userdescc">
                         <dt>EGOpay</dt>
@@ -746,156 +751,17 @@ Author: WebstrotSavehyip
 
                     </dl>
 
-                </div> -->
+                </div>
 
             </div>
             <!--  my account wrapper end -->    
-            <!--  account wrapper start -->
-            <div class="account_wrapper float_left">
-
+            <!--  profile wrapper start -->
+             <div class="last_transaction_wrapper float_left">
                 <div class="row">
-
                     <div class="col-md-12 col-lg-12 col-sm-12 col-12">
                         <div class="sv_heading_wraper">
 
-                            <h3>my account</h3>
-
-                        </div>
-                        <!-- <div class="payment_gateway_wrapper">
-                            <select>
-                                <option selected>choose payment gateway</option>
-                                <option value="1">paypal</option>
-                                <option value="2">pexpay</option>
-                                <option value="3">perfectMoney</option>
-                                <option value="4">perfectMoney</option>
-                                <option value="5">payza</option>
-                                <option value="6">HDMoney</option>
-                                <option value="7">EGOpay</option>
-                                <option value="8">OKpay</option>
-                                <option value="9">solid trust pay</option>
-                                <option value="10">webmoney</option>
-                                <option value="11">bankwire</option>
-                                <option value="12">bitcoin</option>
-                            </select>
-                        </div> -->
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
-                        <div class="investment_box_wrapper color_1 float_left">
-                            <a href="#">
-                                <div class="investment_icon_wrapper float_left">
-                                    <i class="far fa-money-bill-alt"></i>
-                                    <h1>payouts</h1>
-                                </div>
-
-                                <div class="invest_details float_left">
-                                    <table class="invest_table">
-                                        <tbody>
-                                            <tr>
-                                                <td class="invest_td1">total payouts</td>
-                                                <td class="invest_td1"> : $0.00 USD</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="invest_td1">pending payouts</td>
-                                                <td class="invest_td1">: $0.00 USD</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
-                        <div class="investment_box_wrapper color_2 float_left">
-                            <a href="#">
-                                <div class="investment_icon_wrapper float_left">
-                                    <i class="far fa-money-bill-alt"></i>
-                                    <h1>payouts</h1>
-                                </div>
-
-                                <div class="invest_details float_left">
-                                    <table class="invest_table">
-                                        <tbody>
-                                            <tr>
-                                                <td class="invest_td1">total payouts</td>
-                                                <td class="invest_td1"> : $0.00 USD</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="invest_td1">pending payouts</td>
-                                                <td class="invest_td1">: $0.00 USD</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
-                        <div class="investment_box_wrapper color_3 float_left">
-                            <a href="#">
-                                <div class="investment_icon_wrapper float_left">
-                                    <i class="far fa-money-bill-alt"></i>
-                                    <h1>payouts</h1>
-                                </div>
-
-                                <div class="invest_details float_left">
-                                    <table class="invest_table">
-                                        <tbody>
-                                            <tr>
-                                                <td class="invest_td1">total payouts</td>
-                                                <td class="invest_td1"> : $0.00 USD</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="invest_td1">pending payouts</td>
-                                                <td class="invest_td1">: $0.00 USD</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
-                        <div class="investment_box_wrapper color_4 float_left">
-                            <a href="#">
-                                <div class="investment_icon_wrapper float_left">
-                                    <i class="far fa-money-bill-alt"></i>
-                                    <h1>payouts</h1>
-                                </div>
-
-                                <div class="invest_details float_left">
-                                    <table class="invest_table">
-                                        <tbody>
-                                            <tr>
-                                                <td class="invest_td1">total payouts</td>
-                                                <td class="invest_td1"> : $0.00 USD</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="invest_td1">pending payouts</td>
-                                                <td class="invest_td1">: $0.00 USD</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  account wrapper end -->
-            <!--  transactions wrapper start -->
-            <div class="last_transaction_wrapper float_left">
-
-                <div class="row">
-
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
-                        <div class="sv_heading_wraper">
-
-                            <h3>LAST 5 TRANSACTIONS</h3>
-
+                            <h3>Referral Earnings history</h3>
                         </div>
                     </div>
                     <div class="crm_customer_table_main_wrapper float_left">
@@ -931,7 +797,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">1000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Deposit made</div>
+                                            <div class="pretty p-svg p-curve">Referral Commission</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -969,7 +835,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
+                                            <div class="pretty p-svg p-curve">Referral Commission</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1007,7 +873,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Deposit made</div>
+                                            <div class="pretty p-svg p-curve">Direct commission earning for Deposit</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1045,7 +911,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
+                                            <div class="pretty p-svg p-curve">Direct commission earning for Deposit</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1083,7 +949,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
+                                            <div class="pretty p-svg p-curve">Direct commission earning for Deposit</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1121,7 +987,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
+                                            <div class="pretty p-svg p-curve">Referral Commission</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1159,7 +1025,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
+                                            <div class="pretty p-svg p-curve">Referral Commission</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1197,7 +1063,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Deposit made</div>
+                                            <div class="pretty p-svg p-curve">Referral Commission</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1273,7 +1139,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
+                                            <div class="pretty p-svg p-curve">Referral Commission</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1311,7 +1177,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Deposit made</div>
+                                            <div class="pretty p-svg p-curve">Referral Commission</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">Bitcoin</div>
@@ -1387,7 +1253,7 @@ Author: WebstrotSavehyip
                                             <div class="pretty p-svg p-curve">22000.00</div>
                                         </td>
                                         <td>
-                                            <div class="pretty p-svg p-curve">Fund Received to Paypal</div>
+                                            <div class="pretty p-svg p-curve">Referral Commission</div>
                                         </td>
                                         <td>
                                             <div class="pretty p-svg p-curve">payza</div>
@@ -1410,349 +1276,7 @@ Author: WebstrotSavehyip
                                                 </ul>
                                             </nav>
                                         </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>DINT1570066</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">22000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Bitcoin</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">20/07/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>DINT1570066</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">22000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Bitcoin</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">20/07/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>TQNT1570066</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">22000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Fund Received to Paypal</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Bitcoin</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">20/07/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>DINT2676563</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">1000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Fund Received to Paypal</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">payza</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">20/08/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>EXCR1004425</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">4000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Interest Earning for investment</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">PerfectMoney</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">28/08/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>EXCS1004424</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">19000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Fund Received to Paypal</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">payza</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">2/09/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>EQCS1004424</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">3000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Fund Received to Paypal</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">OKpay</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">2/09/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>COMM1004411</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">5000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Deposit made</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">OKpay</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">04/09/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                    <tr class="background_white">
-
-                                        <td>
-                                            <div class="media cs-media">
-
-                                                <div class="media-body">
-                                                    <h5>KQM1004411</h5>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">5000.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">Deposit made</div>
-                                        </td>
-                                        <td>
-                                            <div class="pretty p-svg p-curve">paypal</div>
-                                        </td>
-
-                                        <td class="flag">
-                                            <div class="pretty p-svg p-curve">04/09/2022</div>
-                                        </td>
-                                        <td>
-                                            <nav class="navbar navbar-expand">
-                                                <ul class="navbar-nav">
-                                                    <!-- Dropdown -->
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Delete</a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
+                                    </tr>                    
                                 </tbody>
                             </table>
 
@@ -1760,14 +1284,14 @@ Author: WebstrotSavehyip
                     </div>
                 </div>
             </div>
-            <!--  transactions wrapper end -->
+            <!--  profile wrapper end -->
             <!--  footer  wrapper start -->
             <div class="copy_footer_wrapper">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="crm_left_footer_cont">
-                                <p>2023 Copyright © <a href="{% url 'home:home_view' %}"> earnnaira </a> . All Rights Reserved.</p>
+                                <p>2022 Copyright © <a href="#"> savehyip </a> . All Rights Reserved.</p>
                             </div>
                         </div>
 
@@ -1777,19 +1301,19 @@ Author: WebstrotSavehyip
          </div>
        <!--  footer  wrapper end -->      
     <!-- main box wrapper End-->
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/modernizr.js' %}"></script>
-	<script src="{% static 'js/dropify.min.js' %}"></script>
-	<script src="{% static 'js/owl.carousel.js' %}"></script>
-    <script src="{% static 'js/jquery.countTo.js' %}"></script>
-	<script src="{% static 'js/plugin.js' %}"></script>
-    <script src="{% static 'js/jquery.inview.min.js' %}"></script>
-    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
-    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
-    <script src="{% static 'js/datatables.js' %}"></script>
-    <script src="{% static 'js/jquery.menu-aim.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.js"></script>
+	<script src="js/dropify.min.js"></script>
+	<script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.countTo.js"></script>
+	<script src="js/plugin.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="js/jquery.menu-aim.js"></script>
+    <script src="js/custom.js"></script>
     <!--main js file end-->
 </body>
 

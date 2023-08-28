@@ -33,3 +33,9 @@ class Post(models.Model):
         if not self.slug:
             self.slug = slugify(self.post_title)  # Auto-populate the slug
         super().save(*args, **kwargs)
+
+
+class PostShare(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    shared_at = models.DateTimeField(auto_now_add=True)

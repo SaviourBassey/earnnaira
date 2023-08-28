@@ -36,6 +36,14 @@ Author: Webstrot
     <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+    <style>
+        /* Adjust text size for smaller screens */
+        @media (max-width: 768px) {
+        #small-screen {
+            font-size: 1rem;
+        }
+        }
+    </style>
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{% static 'images/new_favicon-removebg-preview.png' %}" />
 </head>
@@ -185,13 +193,14 @@ Author: Webstrot
                 </div>
                 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 sw_spectrm_padding">
                     <div class="investors_slider_wrapper">
+                        {% if top_earners %}
                         <div class="owl-carousel owl-theme">
+                            {% for item in top_earners %}
                             <div class="item">
-
                                 <div class="inves_slider_cntn float_left">
                                     <div class="investment_box_wrapper index_investment float_left">
                                         <div class="inves_img_wrapper">
-                                            <img src="{% static 'images/inves1.png' %}" class="img-responsive" alt="img" />
+                                            <img src="{{ item.image.url }}" class="img-responsive" alt="img" />
                                         </div>
                                         <div class="inves_main_border float_left">
                                             <div class="investment_icon_circle inves_icon">
@@ -199,99 +208,24 @@ Author: Webstrot
                                             </div>
                                             <div class="investment_border_wrapper inves_border_slider"></div>
                                             <div class="investment_content_wrapper inves_heading_txt">
-                                                <h1><a href="#">akshay H.</a></h1>
-                                                <p>$22500.00 USD</p>
+                                                <h1><a href="#">{{ item.user.first_name }} {{ item.user.last_name|make_list|first }}.</a></h1>
+                                                <p>&#8358;{{ item.account_bal }}</p>
                                             </div>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
+                            {% endfor %}
 
-                                <div class="inves_slider_cntn float_left">
-                                    <div class="investment_box_wrapper index_investment float_left">
-                                        <div class="inves_img_wrapper">
-                                            <img src="{% static 'images/inves2.png' %}" class="img-responsive" alt="img" />
-                                        </div>
-                                        <div class="inves_main_border float_left">
-                                            <div class="investment_icon_circle inves_icon">
-                                                <i class="flaticon-twitter"></i>
-                                            </div>
-                                            <div class="investment_border_wrapper inves_border_slider"></div>
-                                            <div class="investment_content_wrapper inves_heading_txt">
-                                                <h1><a href="#">maria F.</a></h1>
-                                                <p>$22500.00 USD</p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-
-                                <div class="inves_slider_cntn float_left">
-                                    <div class="investment_box_wrapper index_investment float_left">
-                                        <div class="inves_img_wrapper">
-                                            <img src="{% static 'images/inves3.png' %}" class="img-responsive" alt="img" />
-                                        </div>
-                                        <div class="inves_main_border float_left">
-                                            <div class="investment_icon_circle inves_icon">
-                                                <i class="flaticon-twitter"></i>
-                                            </div>
-                                            <div class="investment_border_wrapper inves_border_slider"></div>
-                                            <div class="investment_content_wrapper inves_heading_txt">
-                                                <h1><a href="#">josep K.</a></h1>
-                                                <p>$22500.00 USD</p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-
-                                <div class="inves_slider_cntn float_left">
-                                    <div class="investment_box_wrapper index_investment float_left">
-                                        <div class="inves_img_wrapper">
-                                            <img src="{% static 'images/inves4.png' %}" class="img-responsive" alt="img" />
-                                        </div>
-                                        <div class="inves_main_border float_left">
-                                            <div class="investment_icon_circle inves_icon">
-                                                <i class="flaticon-twitter"></i>
-                                            </div>
-                                            <div class="investment_border_wrapper inves_border_slider"></div>
-                                            <div class="investment_content_wrapper inves_heading_txt">
-                                                <h1><a href="#">liva M.</a></h1>
-                                                <p>$22500.00 USD</p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-
-                                <div class="inves_slider_cntn float_left">
-                                    <div class="investment_box_wrapper index_investment float_left">
-                                        <div class="inves_img_wrapper">
-                                            <img src="{% static 'images/inves3.png' %}" class="img-responsive" alt="img" />
-                                        </div>
-                                        <div class="inves_main_border float_left">
-                                            <div class="investment_icon_circle inves_icon">
-                                                <i class="flaticon-twitter"></i>
-                                            </div>
-                                            <div class="investment_border_wrapper inves_border_slider"></div>
-                                            <div class="investment_content_wrapper inves_heading_txt">
-                                                <h1><a href="#">akshay H.</a></h1>
-                                                <p>$22500.00 USD</p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        {% else %}
+                        <div>
+                            <div style="text-align: center; color: black; font-size: 2rem; margin-top: 50px;">
+                                <p id="small-screen">No Data to Display at the moment</p>
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
