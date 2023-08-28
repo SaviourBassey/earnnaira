@@ -112,7 +112,7 @@ class SignUpView(View):
 
 class SignInView(View):
     def get(self, request, *args, **kwargs):
-        #User.objects.all().delete()
+        #print(User.objects.all())
         logout(request)
         return render(request, "accounts/login.html")
 

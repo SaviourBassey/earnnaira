@@ -33,7 +33,7 @@ class CouponCode(models.Model):
     generated_by = models.ForeignKey(Vendor, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    def generate_coupon_code(self, length=30):
+    def generate_coupon_code(self, length=5):
         characters = string.ascii_uppercase + string.digits
         return ''.join(random.choice(characters) for _ in range(length))
 

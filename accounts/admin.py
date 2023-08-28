@@ -10,7 +10,7 @@ admin.site.register(Vendor, VendorAdmin)
 
 
 class CouponCodeAdmin(admin.ModelAdmin):
-    list_display = ("generated_by", "used_by", "active")
+    list_display = ("generated_by", "coupon_code", "used_by", "active")
     list_filter = ("generated_by",)
     search_fields = ("coupon_code",)
 admin.site.register(CouponCode, CouponCodeAdmin)
