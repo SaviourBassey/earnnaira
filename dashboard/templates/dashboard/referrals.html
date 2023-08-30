@@ -36,6 +36,17 @@ Author: WebstrotSavehyip
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+    <style>
+        #account-top {
+            margin-top: 200px;
+        }
+        /* Adjust text size for smaller screens */
+        @media (max-width: 768px) {
+        #account-top {
+            margin-top: 0px;
+        }
+        }
+    </style>
 	 <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{% static 'images/new_favicon-removebg-preview.png' %}" />
 </head>
@@ -82,6 +93,9 @@ Author: WebstrotSavehyip
                       <li>
                         <a href="#">Spin & Win</a>
                       </li>
+                      <li>
+                        <a href="#">BVTU</a>
+                    </li>
                       <li>
                         <a href="{% url 'dashboard:request_payment_view' %}">payment request</a>
                     </li>
@@ -341,6 +355,9 @@ Author: WebstrotSavehyip
                                             <a href="#"><i class="fas fa-caret-right"></i>Spin & Win</a>
                                         </li>
                                         <li>
+                                            <a href="#"><i class="fas fa-caret-right"></i>BVTU</a>
+                                        </li>
+                                        <li>
                                             <a href="{% url 'dashboard:request_payment_view' %}"><i class="fas fa-caret-right"></i>payment request</a>
                                         </li>
                                         <li>
@@ -467,6 +484,17 @@ Author: WebstrotSavehyip
                     </ul> 
                     <ul class="u-list crm_drop_second_ul">
                         <li class="crm_navi_icon">
+                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
+                            </div>
+                        </li>
+                        <li class="c-menu__item crm_navi_icon_cont">
+                            <a href="#">
+                                <div class="c-menu-item__title">BVTU</div>
+                            </a>
+                        </li>
+                    </ul> 
+                    <ul class="u-list crm_drop_second_ul">
+                        <li class="crm_navi_icon">
                             <div class="c-menu__item__inner"><a href="{% url 'dashboard:request_payment_view' %}"><i class="flaticon-profile"></i></a>
                             </div>
                         </li>
@@ -514,69 +542,9 @@ Author: WebstrotSavehyip
         </div>
         <!-- Main section Start -->
          <div class="l-main">         
-          <!--  my account wrapper start -->
-            <div class="account_top_information">
-                <div class="account_overlay"></div>
-                <div class="useriimg"><img src="{{ request.user.useradditionalinformation.image.url }}" alt="users" height="150" width="150" style="border-radius: 50%;"></div>
-                <div class="userdet uderid">
-                    <h3>{{ request.user.username }}</h3>
-
-                    <dl class="userdescc">
-                        <dt>First Name</dt>
-                        <dd>: &nbsp; {{ request.user.first_name }}</dd>
-                        <dt>Last Name</dt>
-                        <dd>: &nbsp; {{ request.user.last_name }}</dd>
-                        <dt>Emaill Address</dt>
-                        <dd>: &nbsp; {{ request.user.email }}</dd>
-                        <dt>Registration Date</dt>
-                        <dd>: &nbsp; {{ request.user.date_joined }} </dd>
-                        <dt>Last Login</dt>
-                        <dd>: &nbsp; {{ request.user.last_login }} </dd>
-
-                    </dl>
-
-                </div>
-
-                <div class="userdet user_transcation">
-                    <h3>Available Balance</h3>
-                    <dl class="userdescc">
-                        <dt>Shared Post</dt>
-                        <dd>: &nbsp; 0EN</dd>
-                        <dt>Daily Login</dt>
-                        <dd>: &nbsp; {{ request.user.dailyloginreward.daily_login_bal }}EN</dd>
-                        <dt>Referrals</dt>
-                        <dd>: &nbsp; &#8358;{{ request.user.referalreward.total_bal }}</dd>
-                        <dt>Spin & Win</dt>
-                        <dd>: &nbsp; 0EN </dd>
-                        <dt>Total Balance</dt>
-                        <dd>: &nbsp; 0EN </dd>
-
-                    </dl>
-                </div>
-                <!-- <div class="userdet user_transcation">
-                    <h3 class="none_headung"> &nbsp;</h3>
-                    <dl class="userdescc">
-                        <dt>EGOpay</dt>
-                        <dd>:&nbsp;&nbsp;$ 0</dd>
-                        <dt>OKpay</dt>
-                        <dd>:&nbsp;&nbsp;$ 0</dd>
-                        <dt>Solidtrustpay </dt>
-                        <dd>:&nbsp;&nbsp;$ 0</dd>
-                        <dt>Webmoney</dt>
-                        <dd>:&nbsp;&nbsp;$ 450</dd>
-                        <dt>Bankwire</dt>
-                        <dd>:&nbsp;&nbsp;$ 799</dd>
-                        <dt>Bitcoin</dt>
-                        <dd>:&nbsp;&nbsp;$ 33584</dd>
-
-                    </dl>
-
-                </div> -->
-
-            </div>
-            <!--  my account wrapper end -->    
+    
             <!-- referrals wrapper start -->
-            <div class="view_profile_wrapper_top float_left">
+            <div class="view_profile_wrapper_top float_left" id="account-top">
 
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-12">

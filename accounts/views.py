@@ -98,16 +98,28 @@ class SignUpView(View):
                             return redirect("accounts:login_view")
                         else:
                             messages.error(request, "Wrong Coupon Code")
-                            return redirect("accounts:register_view")
+                            if referral_user:
+                                return redirect(request.build_absolute_uri(reverse('accounts:register_view')) + f'?ref={referral_user}')
+                            else:
+                                return redirect("accounts:register_view")
                     else:
                         messages.error(request, "Password do not match")
-                        return redirect("accounts:register_view")
+                        if referral_user:
+                            return redirect(request.build_absolute_uri(reverse('accounts:register_view')) + f'?ref={referral_user}')
+                        else:
+                            return redirect("accounts:register_view")
                 else:
                     messages.error(request, "Password must contain atleast 1 Uppercase, 1 lowercase, 1 digit and a special character and at least 8 characters long")
-                    return redirect("accounts:register_view")
+                    if referral_user:
+                        return redirect(request.build_absolute_uri(reverse('accounts:register_view')) + f'?ref={referral_user}')
+                    else:
+                        return redirect("accounts:register_view")
             else:
                 messages.error(request, "Password too short. Your password must contain at least 8 characters.")
-                return redirect("accounts:register_view")
+                if referral_user:
+                    return redirect(request.build_absolute_uri(reverse('accounts:register_view')) + f'?ref={referral_user}')
+                else:
+                    return redirect("accounts:register_view")
 
 
 class SignInView(View):

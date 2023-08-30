@@ -12,10 +12,12 @@ STATUS = (
 
 class PaymentRequest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    transaction_id = models.CharField(max_length=20, unique=True)
+    transaction_id = models.CharField(max_length=20, unique=True, null=True, blank=True)
     request_status = models.CharField(max_length=50, choices=STATUS)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     amount = models.PositiveIntegerField()
+    account_number = models.CharField(max_length=11)
+    bank_name = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
@@ -25,5 +27,5 @@ class PaymentRequest(models.Model):
             if last_transaction:
                 last_counter = int(last_transaction.transaction_id[5:])  # Extract numeric portion
             new_counter = last_counter + 1
-            self.transaction_id = f"ENTXN{new_counter:06d}"
+            self.transaction_id = f"WHTXN{new_counter:06d}"
         super().save(*args, **kwargs)
