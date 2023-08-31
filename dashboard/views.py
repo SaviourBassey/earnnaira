@@ -104,3 +104,8 @@ class ReferralView(LoginRequiredMixin, View):
             "sorted_queryset": sorted_queryset
         }
         return render(request, "dashboard/referrals.html", context)
+    
+
+class SpinAndWinView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "dashboard/spin_and_win.html")

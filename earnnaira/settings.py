@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
     "ckeditor",
+    "cloudinary",
 
     #my apps
     "home.apps.HomeConfig",
@@ -160,3 +161,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = "accounts:login_view"
+
+
+import cloudinary
+          
+cloudinary.config( 
+  cloud_name = "dmpxni4ku", 
+  api_key = "589853123957555", 
+  api_secret = "qXi49wce6G3lb1GitG69KQ_7HZ0"
+)

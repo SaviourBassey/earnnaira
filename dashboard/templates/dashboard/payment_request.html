@@ -90,7 +90,7 @@ Author: WebstrotSavehyip
                         <a href="#">change pin</a>
                       </li>
                       <li>
-                        <a href="#">Spin & Win</a>
+                        <a href="{% url 'dashboard:spin_and_win_view' %}">Spin & Win</a>
                       </li>
                       <li>
                         <a href="#">BVTU</a>
@@ -351,7 +351,7 @@ Author: WebstrotSavehyip
 									</span></a>
                                     <ul class="dropdown-menu-right">
                                         <li>
-                                            <a href="#"><i class="fas fa-caret-right"></i>Spin & Win</a>
+                                            <a href="{% url 'dashboard:spin_and_win_view' %}"><i class="fas fa-caret-right"></i>Spin & Win</a>
                                         </li>
                                         <li>
                                             <a href="#"><i class="fas fa-caret-right"></i>BVTU</a>
@@ -472,11 +472,11 @@ Author: WebstrotSavehyip
                     </ul>
                     <ul class="u-list crm_drop_second_ul">
                         <li class="crm_navi_icon">
-                            <div class="c-menu__item__inner"><a href="#"><i class="flaticon-profile"></i></a>
+                            <div class="c-menu__item__inner"><a href="{% url 'dashboard:spin_and_win_view' %}"><i class="flaticon-profile"></i></a>
                             </div>
                         </li>
                         <li class="c-menu__item crm_navi_icon_cont">
-                            <a href="#">
+                            <a href="{% url 'dashboard:spin_and_win_view' %}">
                                 <div class="c-menu-item__title">Spin & Win</div>
                             </a>
                         </li>

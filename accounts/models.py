@@ -2,12 +2,14 @@ import random
 import string
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 class UserAdditionalInformation(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default="image.jpg")
+    #image = models.ImageField(default="image.jpg")
+    image = CloudinaryField('image', default="hello.py")
     phone = models.CharField(max_length=15, null=True, blank=True)
     referral_link = models.CharField(max_length=255, null=True, blank=True)
     account_bal = models.PositiveIntegerField(default=0) # Holds the sum of all referral earnings

@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -18,7 +19,8 @@ class Post(models.Model):
     slug = models.SlugField(null=True, blank=True, unique=True, editable=False)
     post_category = models.ManyToManyField(PostCategory)
     # post_tags
-    post_image = models.ImageField()
+    # post_image = models.ImageField()
+    post_image = CloudinaryField('image', default="hello.py")
     post_body = RichTextField(blank=True, null=True)
     likes = models.ManyToManyField(User)
     timestamp = models.DateTimeField(auto_now_add=True)
