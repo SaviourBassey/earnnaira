@@ -41,6 +41,7 @@ PLATFORM_SHARED = (
     ("FACEBOOK","FACEBOOK"),
     ("TWITTER","TWITTER"),
     ("LINKEDIN","LINKEDIN"),
+    ("WHATSAPP","WHATSAPP"),
 )
 class PostShare(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

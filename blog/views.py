@@ -55,6 +55,10 @@ class PostDetailView(View):
                 PostShare.objects.create(user=request.user, post=post, platform_shared="LINKEDIN")
                 additional_info.activity_bal = additional_info.activity_bal + 300
                 additional_info.save()
+            elif platform == "wh":
+                PostShare.objects.create(user=request.user, post=post, platform_shared="WHATSAPP")
+                additional_info.activity_bal = additional_info.activity_bal + 300
+                additional_info.save()
                 
         return JsonResponse({'message': 'Request successful'})
         
