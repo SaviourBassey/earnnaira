@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import CouponCode, UserAdditionalInformation, Vendor, DailyLoginReward, Referral, ReferalReward
+from .models import CouponCode, UserAdditionalInformation, Vendor, Referral, ReferalReward
 from datetime import datetime, timedelta
 from django.utils import timezone
 from django.urls import reverse
@@ -54,6 +54,7 @@ class SignUpView(View):
                             user = User.objects.create_user(username=username, email=email, password=password1, first_name=first_name, last_name=last_name)
                             additional_info = UserAdditionalInformation.objects.get(user=user)
                             additional_info.phone = phone
+                            additional_info.activity_bal = additional_info.activity_bal + 2000
                             additional_info.referral_link = request.build_absolute_uri(reverse('accounts:register_view')) + f'?ref={user.username}'
                             additional_info.save()
 
@@ -143,16 +144,16 @@ class SignInView(View):
                     last_login = user.last_login.date()
                     if last_login < today:
                         try:
-                            user_reward = DailyLoginReward.objects.get(user=user)
-                            user_reward.daily_login_bal = user_reward.daily_login_bal + int(200)
-                            user_reward.save()
+                            daily_reward = UserAdditionalInformation.objects.get(user=user)
+                            daily_reward.activity_bal = daily_reward.activity_bal + 200
+                            daily_reward.save()
                         except:
                             pass
                 else:
                     try:
-                        user_reward = DailyLoginReward.objects.get(user=user)
-                        user_reward.daily_login_bal = user_reward.daily_login_bal + int(200)
-                        user_reward.save()
+                        daily_reward = UserAdditionalInformation.objects.get(user=user)
+                        daily_reward.activity_bal = daily_reward.activity_bal + 200
+                        daily_reward.save()
                     except:
                         pass
 

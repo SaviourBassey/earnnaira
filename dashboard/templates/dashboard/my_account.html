@@ -55,6 +55,19 @@ Author: WebstrotSavehyip
         }
         }
     </style>
+    <style>
+        /* Default styles */
+        .d-flex {
+          display: flex;
+        }
+      
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+          .d-flex {
+            flex-direction: column;
+          }
+        }
+      </style>
 	 <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{% static 'images/new_favicon-removebg-preview.png' %}" />
 </head>
@@ -752,13 +765,13 @@ Author: WebstrotSavehyip
                                         <div style="background: linear-gradient(to right, #130108, #2a201b); padding: 20px; height: 20rem; border-radius: 25px;" class="carousel-item active">
                                             <div style="height: 90%;">
                                                 <div class="d-flex justify-content-around align-items-center" style="height: 100%;">
-                                                    <div style="color: white; line-height: 1.7em">
-                                                        <h5 style="color: white; line-height: 1.7em">Direct Affiliate</h5>
+                                                    <div style="color: white; line-height: 1.7em; text-align: center;">
+                                                        <h5 style="color: white; line-height: 1.7em;">Direct Affiliate</h5>
                                                         <p>Earnings:</p>
                                                         <p>&#8358;{{ request.user.referalreward.direct_bal }}</p>
                                                     </div>
-                                                    <div style="color: white; line-height: 1.7em">
-                                                        <h5 style="color: white; line-height: 1.7em">Referrals Affiliate</h5>
+                                                    <div style="color: white; line-height: 1.7em; text-align: center;">
+                                                        <h5 style="color: white; line-height: 1.7em;">Referrals</h5>
                                                         <p>Number of Referrrals:</p>
                                                         <p>{{ direct }}</p>
                                                     </div>
@@ -771,10 +784,10 @@ Author: WebstrotSavehyip
                                         <div style="background: linear-gradient(to right, #130108, #2a201b); padding: 20px; height: 20rem; border-radius: 25px;" class="carousel-item">
                                             <div style="height: 90%;">
                                                 <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
-                                                    <div style="color: white; line-height: 1.7em">
+                                                    <div style="color: white; line-height: 1.7em; text-align: center;">
                                                         <h5 style="color: white; line-height: 1.7em">Activities Balance</h5>
                                                         <p>Earnings:</p>
-                                                        <p>{{ activities_earning }}EN</p>
+                                                        <p>{{ request.user.useradditionalinformation.activity_bal }}EN</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -785,13 +798,13 @@ Author: WebstrotSavehyip
                                         <div style="background: linear-gradient(to right, #130108, #2a201b); padding: 20px; height: 20rem; border-radius: 25px;" class="carousel-item">
                                             <div style="height: 90%;">
                                                 <div class="d-flex justify-content-around align-items-center" style="height: 100%;">
-                                                    <div style="color: white; line-height: 1.7em">
-                                                        <h5 style="color: white; line-height: 1.7em">InDirect Affiliate</h5>
+                                                    <div style="color: white; line-height: 1.7em; text-align: center;">
+                                                        <h5 style="color: white; line-height: 1.7em;">InDirect Affiliate</h5>
                                                         <p>Earnings:</p>
                                                         <p>&#8358;{{ request.user.referalreward.indirect_bal }}</p>
                                                     </div>
-                                                    <div style="color: white; line-height: 1.7em">
-                                                        <h5 style="color: white; line-height: 1.7em">Second InDirect Affiliate</h5>
+                                                    <div style="color: white; line-height: 1.7em; text-align: center;">
+                                                        <h5 style="color: white; line-height: 1.7em;">Second InDirect</h5>
                                                         <p>Earnings:</p>
                                                         <p>&#8358;{{ request.user.referalreward.second_indirect_bal }}</p>
                                                     </div>
@@ -804,14 +817,14 @@ Author: WebstrotSavehyip
                                     </div>
         
                                     <!-- Controls -->
-                                    <!-- <a class="left carousel-control" href="#blogoneSlider" role="button" data-slide="prev">
-                                        <span class="flaticon-left-arrow"></span>
+                                    <a class="left carousel-control" href="#blogoneSlider" role="button" data-slide="prev">
+                                        <i class="fas fa-angle-double-left"></i>
                                         <span class="sr-only">Previous</span>
                                     </a>
                                     <a class="right carousel-control" href="#blogoneSlider" role="button" data-slide="next">
-                                        <span class="flaticon-arrow-pointing-to-right" aria-hidden="true"></span>
+                                        <i class="fas fa-angle-double-right" aria-hidden="true"></i>
                                         <span class="sr-only">Next</span>
-                                    </a> -->
+                                    </a>
                                 </div>
                             </div>
 

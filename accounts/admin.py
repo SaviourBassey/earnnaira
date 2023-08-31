@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Vendor, CouponCode, UserAdditionalInformation, DailyLoginReward, ReferalReward, Referral
+from .models import Vendor, CouponCode, UserAdditionalInformation, ReferalReward, Referral
 
 # Register your models here.
 
@@ -20,11 +20,6 @@ class UserAdditionalInformationAdmin(admin.ModelAdmin):
     list_display = ("user", "phone", "referral_link")
     search_fields = ("phone", "user",)
 admin.site.register(UserAdditionalInformation, UserAdditionalInformationAdmin)
-
-
-class DailyLoginRewardAdmin(admin.ModelAdmin):
-    list_display = ("user", "daily_login_bal",)
-admin.site.register(DailyLoginReward, DailyLoginRewardAdmin)
 
 
 class ReferalRewardAdmin(admin.ModelAdmin):

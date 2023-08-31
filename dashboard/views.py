@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
-from accounts.models import Referral, DailyLoginReward, UserAdditionalInformation
+from accounts.models import Referral, UserAdditionalInformation
 from django.contrib import messages
 from .models import PaymentRequest
 
@@ -26,14 +26,12 @@ class MyAccountView(LoginRequiredMixin, View):
                         if Referral.objects.filter(referring_user=j.referred_user).exists():
                             second_direct_referer = Referral.objects.filter(referring_user=j.referred_user).count()
 
-        activities_earning = DailyLoginReward.objects.get(user=request.user)
         withdrawal_transaction = PaymentRequest.objects.filter(user=request.user)
         first_5_transaction = withdrawal_transaction.order_by("-timestamp")[:5]
         context = {
             "direct":direct,
             "indirect":indirect,
             "second_direct_referer": second_direct_referer,
-            "activities_earning": activities_earning.daily_login_bal,
             "first_5_transaction":first_5_transaction
         }
         return render(request, "dashboard/my_account.html", context)

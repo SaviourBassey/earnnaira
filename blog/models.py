@@ -35,7 +35,13 @@ class Post(models.Model):
         super().save(*args, **kwargs)
 
 
+PLATFORM_SHARED = (
+    ("FACEBOOK","FACEBOOK"),
+    ("TWITTER","TWITTER"),
+    ("LINKEDIN","LINKEDIN"),
+)
 class PostShare(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    shared_at = models.DateTimeField(auto_now_add=True)
+    platform_shared = models.CharField(max_length=50, choices=PLATFORM_SHARED, default="")
+    timestamp = models.DateTimeField(auto_now_add=True)
