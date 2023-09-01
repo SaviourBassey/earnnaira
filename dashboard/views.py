@@ -52,13 +52,23 @@ class RequestPaymentView(LoginRequiredMixin, View):
         account_number = int(request.POST.get('account_number'))
         withdrawal_amount = int(request.POST.get('withdrawal_amount'))
         if withdrawal_amount <= account_balance:
-            if description:
-                PaymentRequest.objects.create(user=request.user, request_status="PENDING", description=description, amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
-            else:
-                PaymentRequest.objects.create(user=request.user, request_status="PENDING", amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
+            if withdrawal_amount < 6000:
+                if description:
+                    user_bal = UserAdditionalInformation.objects.get(user=request.user)
+                    user_bal.account_bal - withdrawal_amount
+                    user_bal.save()
+                    PaymentRequest.objects.create(user=request.user, request_status="PENDING", description=description, amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
+                else:
+                    user_bal = UserAdditionalInformation.objects.get(user=request.user)
+                    user_bal.account_bal - withdrawal_amount
+                    user_bal.save()
+                    PaymentRequest.objects.create(user=request.user, request_status="PENDING", amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
 
-            messages.success(request, "Withdrawal Placed Successfully")
-            return redirect("dashboard:request_payment_view")
+                messages.success(request, "Withdrawal Placed Successfully")
+                return redirect("dashboard:request_payment_view")
+            else:
+                messages.error(request, "Withdrawal Amount must be from N6000 and above")
+                return redirect("dashboard:request_payment_view")
         else:
             messages.error(request, "Insufficient Account Balance")
             return redirect("dashboard:request_payment_view")

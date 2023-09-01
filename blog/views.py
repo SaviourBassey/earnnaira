@@ -5,6 +5,7 @@ from .models import PostCategory, Post, PostShare
 from django.http import JsonResponse
 from django.urls import reverse
 from accounts.models import UserAdditionalInformation
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -41,7 +42,7 @@ class PostDetailView(View):
         post = get_object_or_404(Post, id=post_id)
         additional_info = UserAdditionalInformation.objects.get(user=request.user)
         if PostShare.objects.filter(id=post_id, user=request.user).exists():
-            print("yes")
+            return HttpResponse("<h1>Already shared the post</h1>")
         else:
             if platform == "fb":
                 PostShare.objects.create(user=request.user, post=post, platform_shared="FACEBOOK")

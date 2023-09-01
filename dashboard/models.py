@@ -29,3 +29,5 @@ class PaymentRequest(models.Model):
             new_counter = last_counter + 1
             self.transaction_id = f"WHTXN{new_counter:06d}"
         super().save(*args, **kwargs)
+
+        
