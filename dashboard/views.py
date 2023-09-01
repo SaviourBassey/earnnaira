@@ -57,8 +57,11 @@ class RequestPaymentView(LoginRequiredMixin, View):
 
         if current_datetime.weekday() == 0:
             # Set the timezone for your target time range (1pm to 3pm)
+            #start_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 13, 0, 0))
+            #end_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 15, 0, 0))
+
             start_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 13, 0, 0))
-            end_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 15, 0, 0))
+            end_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 19, 0, 0))
 
             # Check if the current time is between 1pm and 3pm (inclusive)
             if start_time <= current_datetime <= end_time:
@@ -93,8 +96,11 @@ class RequestPaymentView(LoginRequiredMixin, View):
                 return redirect("dashboard:request_payment_view")
         elif current_datetime.weekday() == 4:
             # Set the timezone for your target time range (1pm to 3pm)
+            #start_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 13, 0, 0))
+            #end_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 15, 0, 0))
+
             start_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 13, 0, 0))
-            end_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 15, 0, 0))
+            end_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 19, 0, 0))
 
             # Check if the current time is between 1pm and 3pm (inclusive)
             if start_time <= current_datetime <= end_time:
