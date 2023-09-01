@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import Referral, UserAdditionalInformation
 from django.contrib import messages
 from .models import PaymentRequest
+from django.utils import timezone
 
 # Create your views here.
 
@@ -51,26 +52,82 @@ class RequestPaymentView(LoginRequiredMixin, View):
         account_balance = int(request.POST.get('account_balance'))
         account_number = int(request.POST.get('account_number'))
         withdrawal_amount = int(request.POST.get('withdrawal_amount'))
-        if withdrawal_amount <= account_balance:
-            if withdrawal_amount < 6000:
-                if description:
-                    user_bal = UserAdditionalInformation.objects.get(user=request.user)
-                    user_bal.account_bal - withdrawal_amount
-                    user_bal.save()
-                    PaymentRequest.objects.create(user=request.user, request_status="PENDING", description=description, amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
-                else:
-                    user_bal = UserAdditionalInformation.objects.get(user=request.user)
-                    user_bal.account_bal - withdrawal_amount
-                    user_bal.save()
-                    PaymentRequest.objects.create(user=request.user, request_status="PENDING", amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
+        # Get the current date and time in the timezone specified in your Django settings
+        current_datetime = timezone.now()
 
-                messages.success(request, "Withdrawal Placed Successfully")
-                return redirect("dashboard:request_payment_view")
+        if current_datetime.weekday() == 0:
+            # Set the timezone for your target time range (1pm to 3pm)
+            start_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 13, 0, 0))
+            end_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 15, 0, 0))
+
+            # Check if the current time is between 1pm and 3pm (inclusive)
+            if start_time <= current_datetime <= end_time:
+                if withdrawal_amount <= account_balance:
+                    print(withdrawal_amount)
+                    if withdrawal_amount >= 6000:
+                        if description:
+                            user_bal = UserAdditionalInformation.objects.get(user=request.user)
+                            print(user_bal)
+                            user_bal.account_bal = user_bal.account_bal - withdrawal_amount
+                            print(user_bal)
+                            user_bal.save()
+                            PaymentRequest.objects.create(user=request.user, request_status="PENDING", description=description, amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
+                        else:
+                            user_bal = UserAdditionalInformation.objects.get(user=request.user)
+                            print(user_bal)
+                            user_bal.account_bal = user_bal.account_bal - withdrawal_amount
+                            print(user_bal)
+                            user_bal.save()
+                            PaymentRequest.objects.create(user=request.user, request_status="PENDING", amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
+
+                        messages.success(request, "Withdrawal Placed Successfully")
+                        return redirect("dashboard:request_payment_view")
+                    else:
+                        messages.error(request, "Withdrawal Amount must be from N6000 and above")
+                        return redirect("dashboard:request_payment_view")
+                else:
+                    messages.error(request, "Insufficient Account Balance")
+                    return redirect("dashboard:request_payment_view")
             else:
-                messages.error(request, "Withdrawal Amount must be from N6000 and above")
+                messages.error(request, "Withdrawal starts from 1pm")
+                return redirect("dashboard:request_payment_view")
+        elif current_datetime.weekday() == 4:
+            # Set the timezone for your target time range (1pm to 3pm)
+            start_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 13, 0, 0))
+            end_time = timezone.make_aware(timezone.datetime(current_datetime.year, current_datetime.month, current_datetime.day, 15, 0, 0))
+
+            # Check if the current time is between 1pm and 3pm (inclusive)
+            if start_time <= current_datetime <= end_time:
+                if withdrawal_amount <= account_balance:
+                    if withdrawal_amount >= 6000:
+                        if description:
+                            user_bal = UserAdditionalInformation.objects.get(user=request.user)
+                            print(user_bal)
+                            user_bal.account_bal = user_bal.account_bal - withdrawal_amount
+                            print(user_bal)
+                            user_bal.save()
+                            PaymentRequest.objects.create(user=request.user, request_status="PENDING", description=description, amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
+                        else:
+                            user_bal = UserAdditionalInformation.objects.get(user=request.user)
+                            print(user_bal)
+                            user_bal.account_bal = user_bal.account_bal - withdrawal_amount
+                            print(user_bal)
+                            user_bal.save()
+                            PaymentRequest.objects.create(user=request.user, request_status="PENDING", amount=withdrawal_amount, bank_name=bank_name, account_number=account_number)
+
+                        messages.success(request, "Withdrawal Placed Successfully")
+                        return redirect("dashboard:request_payment_view")
+                    else:
+                        messages.error(request, "Withdrawal Amount must be from N6000 and above")
+                        return redirect("dashboard:request_payment_view")
+                else:
+                    messages.error(request, "Insufficient Account Balance")
+                    return redirect("dashboard:request_payment_view")
+            else:
+                messages.error(request, "Withdrawal starts from 1pm")
                 return redirect("dashboard:request_payment_view")
         else:
-            messages.error(request, "Insufficient Account Balance")
+            messages.error(request, "Withdrawal is only on Mondays and Fridays from 1pm - 3pm")
             return redirect("dashboard:request_payment_view")
     
 
