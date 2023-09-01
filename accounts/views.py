@@ -75,6 +75,7 @@ class SignUpView(View):
                                     direct_referer_reward = ReferalReward.objects.get(user=referring_user_objects)
                                     direct_referer_reward.direct_bal = direct_referer_reward.direct_bal + 2200
                                     direct_referer_reward.save()
+                                    additional_info = UserAdditionalInformation.objects.get(user=referring_user_objects)
                                     additional_info.account_bal = additional_info.account_bal + 2200
                                     additional_info.save()
 
@@ -84,6 +85,7 @@ class SignUpView(View):
                                         indirect_referer_reward = ReferalReward.objects.get(user=indirect_referer_user)
                                         indirect_referer_reward.indirect_bal = indirect_referer_reward.indirect_bal + 200
                                         indirect_referer_reward.save()
+                                        additional_info = UserAdditionalInformation.objects.get(user=indirect_referer_user)
                                         additional_info.account_bal = additional_info.account_bal + 200
                                         additional_info.save()
 
@@ -93,6 +95,7 @@ class SignUpView(View):
                                             second_indirect_referer_reward = ReferalReward.objects.get(user=second_indirect_referer_user)
                                             second_indirect_referer_reward.second_indirect_bal = second_indirect_referer_reward.second_indirect_bal + 100
                                             second_indirect_referer_reward.save()
+                                            additional_info = UserAdditionalInformation.objects.get(user=second_indirect_referer_user)
                                             additional_info.account_bal = additional_info.account_bal + 100
                                             additional_info.save()
 
