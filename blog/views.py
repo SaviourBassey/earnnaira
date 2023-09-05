@@ -2,10 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import PostCategory, Post, PostShare
-from django.http import JsonResponse
 from django.urls import reverse
 from accounts.models import UserAdditionalInformation
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 

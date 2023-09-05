@@ -3,8 +3,9 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import Referral, UserAdditionalInformation
 from django.contrib import messages
-from .models import PaymentRequest
+from .models import PaymentRequest, Spin
 from django.utils import timezone
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -181,4 +182,32 @@ class ReferralView(LoginRequiredMixin, View):
 
 class SpinAndWinView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        return render(request, "dashboard/spin_and_win.html")
+        context = {"last_spin": "no_user"}
+        if Spin.objects.filter(user=request.user).exists():
+            today = timezone.now().date()
+            spin_obj = Spin.objects.filter(user=request.user).first()
+            last_spin = spin_obj.last_spin
+            if last_spin < today:
+                context = {
+                    "last_spin":True
+                }
+            else:
+                context = {
+                    "last_spin":False
+                }
+
+        return render(request, "dashboard/spin_and_win.html", context)
+    
+    def post(self, request, *args, **kwargs):
+        amount = int(request.POST.get("amount"))
+        if Spin.objects.filter(user=request.user).exists():
+            user_info = UserAdditionalInformation.objects.get(user=request.user)
+            user_info.account_bal = user_info.account_bal - amount
+            user_info.save()
+            return JsonResponse({'message': 'yes'})
+        else:
+            Spin.objects.create(user=request.user, last_spin=timezone.now().date())
+            user_info = UserAdditionalInformation.objects.get(user=request.user)
+            user_info.account_bal = user_info.account_bal + 500
+            user_info.save()
+            return JsonResponse({'message': 'no'}) 

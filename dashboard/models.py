@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -30,4 +31,8 @@ class PaymentRequest(models.Model):
             self.transaction_id = f"WHTXN{new_counter:06d}"
         super().save(*args, **kwargs)
 
-        
+
+class Spin(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    last_spin = models.DateField()
+    timestamp = models.DateTimeField(auto_now_add=True)
