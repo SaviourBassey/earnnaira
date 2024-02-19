@@ -30,9 +30,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 # ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ["127.0.0.1", "earnnaira.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "earnnaira.onrender.com", "earncash.onrender.com"]
 
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "https://earnnaira.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "https://earnnaira.onrender.com", "https://earncash.onrender.com/"]
 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
