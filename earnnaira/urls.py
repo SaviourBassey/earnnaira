@@ -31,6 +31,6 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-admin.site.index_title = "EarnNaira"
-admin.site.site_header = "EarnNaira Admin"
-admin.site.site_title = "EarnNaira Adminiistration"
+admin.site.index_title = "EarnCash"
+admin.site.site_header = "EarnCash Admin"
+admin.site.site_title = "EarnCash Adminiistration"
