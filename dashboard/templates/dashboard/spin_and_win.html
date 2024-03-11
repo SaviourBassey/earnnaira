@@ -85,7 +85,7 @@ Author: WebstrotSavehyip
             left:135px;
         }
         .spin-container .one{
-            background-color: #661037;
+            background-color: #0f5b37;
             left:50%;
         }
         .spin-container .two{
@@ -93,7 +93,7 @@ Author: WebstrotSavehyip
             transform: rotate(45deg);
         }
         .spin-container .three{
-            background-color: #661037;
+            background-color: #0f5b37;
             transform:rotate(90deg);
         }
         .spin-container .four{
@@ -101,7 +101,7 @@ Author: WebstrotSavehyip
             transform: rotate(135deg);
         }
         .spin-container .five{
-            background-color: #661037;
+            background-color: #0f5b37;
             transform: rotate(180deg);
         }
         .spin-container .six{
@@ -109,7 +109,7 @@ Author: WebstrotSavehyip
             transform: rotate(225deg);
         }
         .spin-container .seven{
-            background-color: #661037;
+            background-color: #0f5b37;
             transform: rotate(270deg);
         }
         .spin-container .eight{
@@ -724,7 +724,7 @@ Author: WebstrotSavehyip
                     <div id="spin-bal">
                         <div class="row">
                             <div class="form-group col-md-12 icon_form comments_form register_contact">
-                                <h5>Available Balance: {{ request.user.useradditionalinformation.account_bal }}EN</h5>
+                                <h5>Available Balance: {{ request.user.useradditionalinformation.activity_bal }}EN</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -741,9 +741,9 @@ Author: WebstrotSavehyip
                         <div class="row">
                             <div class="form-group col-md-12 icon_form comments_form register_contact">
                                 {% if last_spin %}
-                                <button type="submit" style="width: inherit; padding: 10px; border-radius: 50px; background-color: #661037;" id="new-spin">Spin</button>
+                                <button type="submit" style="width: inherit; padding: 10px; border-radius: 50px; background-color: #0f5b37;" id="new-spin">Spin</button>
                                 {% else %}
-                                <button type="submit" style="width: inherit; padding: 10px; border-radius: 50px; background-color: #661037;" id="new-spin" disabled>Spin</button>
+                                <button type="submit" style="width: inherit; padding: 10px; border-radius: 50px; background-color: #0f5b37;" id="new-spin" disabled>Spin</button>
                                 {% endif %}
                             </div>
                         </div>
@@ -791,64 +791,70 @@ Author: WebstrotSavehyip
         let clicks = 0;
         btn.onclick = function () {
             if (spinAmount.value >= 100){
-                clicks += 1;
-                if (clicks == 1) {
-                    container.style.transition = "5s";
-                    container.style.transform = "rotate(" + number + "deg)";
-                    number += Math.ceil(Math.random() * 1000);
+                if (spinAmount.value <= Number("{{ request.user.useradditionalinformation.activity_bal }}")){
+                    clicks += 1;
+                    if (clicks == 1) {
+                        container.style.transition = "5s";
+                        container.style.transform = "rotate(" + number + "deg)";
+                        number += Math.ceil(Math.random() * 1000);
 
-                    $.ajax({
-                        type: 'POST',
-                        url: "",
-                        // Data object along with the csrfmiddlewaretoken
-                        data: { 
-                            'csrfmiddlewaretoken': document.getElementsByName('csrfmiddlewaretoken')[0].value,
-                            "amount": spinAmount.value
-                        },
-                        success: function(resp){
-                            // Do something on success
-                            setTimeout(() => {
-                                // Determine the winning section based on the rotation angle
-                                let rotationAngle = number % 360;
-                                let winningSection = null;
-                
-                                if (rotationAngle < 45 || rotationAngle >= 315) {
-                                    winningSection = document.querySelector(".eight");
-                                } else if (rotationAngle >= 45 && rotationAngle < 90) {
-                                    winningSection = document.querySelector(".one");
-                                } else if (rotationAngle >= 90 && rotationAngle < 135) {
-                                    winningSection = document.querySelector(".two");
-                                } else if (rotationAngle >= 135 && rotationAngle < 180) {
-                                    winningSection = document.querySelector(".three");
-                                } else if (rotationAngle >= 180 && rotationAngle < 225) {
-                                    winningSection = document.querySelector(".four");
-                                } else if (rotationAngle >= 225 && rotationAngle < 270) {
-                                    winningSection = document.querySelector(".five");
-                                } else if (rotationAngle >= 270 && rotationAngle < 315) {
-                                    winningSection = document.querySelector(".six");
-                                }
-                
-                                // Add the winning-section class to the winning section
-                                if (winningSection) {
-
-                                    if (resp.message == "yes"){
-                                        document.querySelector(".four").style.backgroundColor = "red";
-                                    } else {
-                                        document.querySelector(".five").style.backgroundColor = "red";
+                        $.ajax({
+                            type: 'POST',
+                            url: "",
+                            // Data object along with the csrfmiddlewaretoken
+                            data: { 
+                                'csrfmiddlewaretoken': document.getElementsByName('csrfmiddlewaretoken')[0].value,
+                                "amount": spinAmount.value
+                            },
+                            success: function(resp){
+                                // Do something on success
+                                setTimeout(() => {
+                                    // Determine the winning section based on the rotation angle
+                                    let rotationAngle = number % 360;
+                                    let winningSection = null;
+                    
+                                    if (rotationAngle < 45 || rotationAngle >= 315) {
+                                        winningSection = document.querySelector(".eight");
+                                    } else if (rotationAngle >= 45 && rotationAngle < 90) {
+                                        winningSection = document.querySelector(".one");
+                                    } else if (rotationAngle >= 90 && rotationAngle < 135) {
+                                        winningSection = document.querySelector(".two");
+                                    } else if (rotationAngle >= 135 && rotationAngle < 180) {
+                                        winningSection = document.querySelector(".three");
+                                    } else if (rotationAngle >= 180 && rotationAngle < 225) {
+                                        winningSection = document.querySelector(".four");
+                                    } else if (rotationAngle >= 225 && rotationAngle < 270) {
+                                        winningSection = document.querySelector(".five");
+                                    } else if (rotationAngle >= 270 && rotationAngle < 315) {
+                                        winningSection = document.querySelector(".six");
                                     }
-                                    // console.log(winningSection)
-                                    // winningSection.style.backgroundColor = "red";
-                                }
+                    
+                                    // Add the winning-section class to the winning section
+                                    if (winningSection) {
 
-                            
-                            }, 5000); // Wait for 5 seconds for the wheel to stop
-                        }
-                    });
+                                        if (resp.message == "yes"){
+                                            document.querySelector(".four").style.backgroundColor = "red";
+                                        } else {
+                                            document.querySelector(".five").style.backgroundColor = "red";
+                                        }
+                                        // console.log(winningSection)
+                                        // winningSection.style.backgroundColor = "red";
+                                    }
+
+                                
+                                }, 5000); // Wait for 5 seconds for the wheel to stop
+                            }
+                        });
+                    }
+                } else {
+                    document.getElementById("msg-msg").innerHTML = "Insufficient Activity Balance"
+                    document.getElementById("msg-div").style.display = "block"
+                    document.getElementById("msg-msg").style.color = "red"
                 }
+                
             } else {
                 document.getElementById("msg-div").style.display = "block"
                 document.getElementById("msg-msg").style.color = "red"
-
             }
             
         };

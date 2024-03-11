@@ -202,12 +202,12 @@ class SpinAndWinView(LoginRequiredMixin, View):
         amount = int(request.POST.get("amount"))
         if Spin.objects.filter(user=request.user).exists():
             user_info = UserAdditionalInformation.objects.get(user=request.user)
-            user_info.account_bal = user_info.account_bal - amount
+            user_info.activity_bal = user_info.activity_bal - amount
             user_info.save()
             return JsonResponse({'message': 'yes'})
         else:
             Spin.objects.create(user=request.user, last_spin=timezone.now().date())
             user_info = UserAdditionalInformation.objects.get(user=request.user)
-            user_info.account_bal = user_info.account_bal + 500
+            user_info.activity_bal = user_info.activity_bal + 500
             user_info.save()
             return JsonResponse({'message': 'no'}) 
