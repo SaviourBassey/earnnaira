@@ -10,4 +10,4 @@ class PaymentRequestAdmin(admin.ModelAdmin):
 admin.site.register(PaymentRequest, PaymentRequestAdmin)
 
 
-admin.site.register(Spin)
+# admin.site.register(Spin)

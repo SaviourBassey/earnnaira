@@ -73,10 +73,10 @@ class SignUpView(View):
                                     referring_user_objects = User.objects.get(username=referral_user)
                                     Referral.objects.create(referring_user=referring_user_objects, referred_user=user, generation=1)
                                     direct_referer_reward = ReferalReward.objects.get(user=referring_user_objects)
-                                    direct_referer_reward.direct_bal = direct_referer_reward.direct_bal + 2200
+                                    direct_referer_reward.direct_bal = direct_referer_reward.direct_bal + 1500
                                     direct_referer_reward.save()
                                     additional_info = UserAdditionalInformation.objects.get(user=referring_user_objects)
-                                    additional_info.account_bal = additional_info.account_bal + 2200
+                                    additional_info.account_bal = additional_info.account_bal + 1500
                                     additional_info.save()
 
                                     if Referral.objects.filter(referred_user=referring_user_objects).exists():
@@ -129,7 +129,7 @@ class SignUpView(View):
 class SignInView(View):
     def get(self, request, *args, **kwargs):
         #print(User.objects.all())
-        logout(request)
+        # logout(request)
         return render(request, "accounts/login.html")
 
     def post(self, request, *args, **kwargs):
@@ -172,9 +172,16 @@ class SignInView(View):
 
 class VendorView(View):
     def get(self, request, *args, **kwargs):
-        logout(request)
+        # logout(request)
         all_vendors = Vendor.objects.all()
         context = {
             "all_vendors":all_vendors
         }
         return render(request, "accounts/vendor.html", context)
+    
+
+
+class LogoutView(View):
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return redirect("home:home_view")

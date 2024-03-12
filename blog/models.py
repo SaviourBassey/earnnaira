@@ -36,6 +36,9 @@ class Post(models.Model):
             self.slug = slugify(self.post_title)  # Auto-populate the slug
         super().save(*args, **kwargs)
 
+    def total_shares(self):
+        return self.postshare_set.count()
+
 
 PLATFORM_SHARED = (
     ("FACEBOOK","FACEBOOK"),

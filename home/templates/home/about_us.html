@@ -54,7 +54,7 @@ Author: Webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="{% url 'home:home_view' %}"> EarnCash </a></h2>
+        <h2><a href="{% url 'home:home_view' %}" style="color: #0f5b37;"> EarnCash </a></h2>
         <a href="#0" class="cd-close">Close</a>
          <ul class="cd-dropdown-content">
             <li>
@@ -63,14 +63,68 @@ Author: Webstrot
                 </form>
             </li> 
             <li><a href="{% url 'home:home_view' %}"> home </a></li>
+            {% if user.is_authenticated %}
+            <li class="has-children">
+                <a href="#">dashboard</a>
+                  <ul class="cd-secondary-dropdown icon_menu is-hidden">
+                      <li class="go-back"><a href="#0">Menu</a></li>
+                        <li>
+                        <a href="{% url 'dashboard:my_accounts_view' %}">my account</a>
+                      </li>
+                      <li>
+                        <a href="#">my profile</a>
+                      </li> 
+                     <li>
+                        <a href="#">change password</a>
+                      </li>
+                      <li>
+                        <a href="#">change pin</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'dashboard:spin_and_win_view' %}">Spin & Win</a>BVTU
+                      </li>
+                      <li>
+                        <a href="#">BVTU</a>
+                    </li>
+                      <li>
+                        <a href="{% url 'dashboard:request_payment_view' %}">payment request</a>
+                    </li>
+                      <li>
+                        <a href="#">exchange money</a>
+                    </li>
+                      <li>
+                        <a href="#">transfer fund</a>
+                    </li>
+                      <li>
+                        <a href="#">all transaction</a>
+                    </li>  
+                    <li>
+                        <a href="{% url 'dashboard:my_referrals_view' %}">Referrals</a>
+                    </li>
+                    <li>
+                        <a href="#">Referral Earnings</a>
+                    </li> 
+                    <li>
+                        <a href="#">tickets</a>
+                    </li> 	
+                    <li>
+                        <a href="{% url 'accounts:logout_view' %}">logout</a>
+                    </li>		
+                </ul>
+            </li>
+            {% endif %}
             <li><a href="{% url 'home:about_view' %}"> about us </a></li>
             <li><a href="{% url 'accounts:vendor_view' %}"> Buy Coupon </a></li>
 			<li><a href="{% url 'home:top_earners_view' %}"> Top Earners </a></li>   
 			<li><a href="#"> Affiliate Contest </a></li>   
 			<li><a href="{% url 'blog:blog_home_view' %}"> EarnCash Posts </a></li>    
             <li><a href="#"> contact us </a></li>
+            {% if not user.is_authenticated %}
             <li><a href="{% url 'accounts:login_view' %}"> login </a></li>
             <li><a href="{% url 'accounts:register_view' %}"> register </a></li>
+            {% else %}
+            <li><a href="{% url 'accounts:logout_view' %}"> logout </a></li>
+            {% endif %}
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -117,13 +171,18 @@ Author: Webstrot
                 <!-- .cd-dropdown-wrapper -->
             </header>
             <div class="top_header_right_wrapper">
-                <p><i class="flaticon-phone-contact"></i> ((+234) 701 736 3526</p>
+                <p><i class="flaticon-phone-contact"></i> (+234) 701 736 3526</p>
                 <div class="header_btn">
                     <ul>
+                        {% if not user.is_authenticated %}
                         <li>
                             <a href="{% url 'accounts:register_view' %}"> register </a> </li>
                         <li>
                             <a href="{% url 'accounts:login_view' %}"> login </a> </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'accounts:logout_view' %}" style="background-color: red;"> Logout </a> </li>
+                        {% endif %}
                     </ul>
 
                 </div>
@@ -687,7 +746,7 @@ Author: Webstrot
 
                         <ul>
                             <li>
-                                <h2>((+234) 701 736 3526</h2></li>
+                                <h2>(+234) 701 736 3526</h2></li>
                             <li><a href="#"><i class="flaticon-mail"></i>noblefrancis215@gmail.com</a>
                             </li>
                             <li><a href="#"><i class="flaticon-language"></i>www.EarnCash.com</a>

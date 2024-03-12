@@ -25,12 +25,14 @@ class PostDetailView(View):
         post = get_object_or_404(Post, id=ID)
         all_category = PostCategory.objects.all().order_by("category")
         post_url = request.build_absolute_uri(reverse('blog:blog_detail_view', kwargs={'SLUG': post.slug, 'ID': post.id}))
-        share_count = PostShare.objects.filter(post=post).count()
+        fb_share_count = PostShare.objects.filter(post=post, platform_shared="FACEBOOK").count()
+        wh_share_count = PostShare.objects.filter(post=post, platform_shared="WHATSAPP").count()
         context = {
             "all_category":all_category,
             "post":post,
             "post_url":post_url,
-            "share_count":share_count
+            "fb_share_count":fb_share_count,
+            "wh_share_count":wh_share_count,
         }
         return render(request, "blog/blog_single.html", context)
     
