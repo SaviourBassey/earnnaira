@@ -38,11 +38,11 @@ class PostDetailView(View):
     
 
     def post(self, request, ID, *args, **kwargs):
-        post_id = int(request.POST.get("post_id"))
+        #post_id = int(request.POST.get("post_id"))
         platform = request.POST.get("platform")
-        post = get_object_or_404(Post, id=post_id)
+        post = get_object_or_404(Post, id=ID)
         additional_info = UserAdditionalInformation.objects.get(user=request.user)
-        if PostShare.objects.filter(id=post_id, user=request.user).exists():
+        if PostShare.objects.filter(post=post, user=request.user).exists():
             return HttpResponse("<h1>Already shared the post</h1>")
         else:
             if platform == "fb":
